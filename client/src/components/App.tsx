@@ -7,6 +7,7 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <div className="app">
+        <Navigation />
         <Routes>
           <Route path="/" element={<LandingPage />} />
         </Routes>
