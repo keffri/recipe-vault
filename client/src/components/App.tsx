@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigation from './navigation/Navigation';
 import LandingPage from './landingPage/LandingPage';
 
 const App: FC = () => {
