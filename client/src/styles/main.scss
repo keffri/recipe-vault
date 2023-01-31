@@ -7,8 +7,10 @@
 @import 'utils/variables';
 @import 'utils/mixins';
 
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
 // component imports
-@import '/components/navigation';
+@import 'components/navigation';
 
 // layout imports
 @import 'media';
