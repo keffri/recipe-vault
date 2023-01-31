@@ -1,8 +1,11 @@
 // base imports
-@import 'base/custom';
 @import 'base/reset';
-@import 'base/variables';
-@import 'base/mixins';
+
+// utils  imports
+@import 'utils/custom';
+@import 'utils/themes';
+@import 'utils/variables';
+@import 'utils/mixins';
 
 // component imports
 @import 'components/navigation';
