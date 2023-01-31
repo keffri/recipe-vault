@@ -142,6 +142,10 @@ table {
   border-spacing: 0;
 }
 
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
