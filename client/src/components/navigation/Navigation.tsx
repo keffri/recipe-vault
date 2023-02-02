@@ -7,13 +7,19 @@ const Navigation: FC = () => {
   return (
     <Navbar expand="lg" className="navigation sticky-top">
       <Container>
-        <Navbar.Brand>Recipe Vault</Navbar.Brand>
+        <Navbar.Brand className="navigation__title">Recipe Vault</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="me_auto">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">Features</Nav.Link>
-            <Nav.Link href="#">Get Started!</Nav.Link>
+            <Nav.Link href="#" className="navigation__link">
+              Home
+            </Nav.Link>
+            <Nav.Link href="#" className="navigation__link">
+              Features
+            </Nav.Link>
+            <Nav.Link href="#" className="navigation__link">
+              <button className="navigation__button">Get Started!</button>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
