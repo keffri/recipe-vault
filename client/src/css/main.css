@@ -10916,6 +10916,27 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.navigation__title {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+.navigation__link {
+  margin: 0 1rem;
+  font-size: 1.25rem;
+}
+.navigation__button {
+  border: none;
+  border-radius: 1rem;
+  padding: 2px 1rem;
+  background-color: #698474;
+  color: #fff;
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+}
 *,
 *::before,
 *::after {
