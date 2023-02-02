@@ -1,0 +1,19 @@
+.navigation {
+  &__title {
+    font-weight: bold;
+    font-size: 1.75rem;
+  }
+
+  &__link {
+    margin: 0 1rem;
+    font-size: 1.25rem;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 1rem;
+    padding: 2px 1rem;
+    background-color: #698474;
+    color: #fff;
+  }
+}
