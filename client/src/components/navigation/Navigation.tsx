@@ -18,7 +18,7 @@ const Navigation: FC = () => {
               Features
             </Nav.Link>
             <Nav.Link href="#" className="navigation__link">
-              <button className="navigation__button">Get Started!</button>
+              <button className="navigation__button">Get started!</button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
