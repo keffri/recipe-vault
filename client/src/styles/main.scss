@@ -14,9 +14,6 @@
 @import 'components/navigation';
 @import 'components/landingPage';
 
-// layout imports
-@import 'media';
-
 *,
 *::before,
 *::after {
@@ -30,3 +27,6 @@ body,
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+// media queries
+@import 'media';
