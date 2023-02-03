@@ -3,3 +3,18 @@
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 515px) {
+  .landing__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 15rem;
+  }
+
+  .landing__text {
+    text-align: center;
+    width: 20rem;
+    word-wrap: break-word;
+  }
+}
