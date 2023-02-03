@@ -1,3 +1,7 @@
+// bootstrap import
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// base imports
 @import 'base/reset';
 
 // utils  imports
@@ -5,8 +9,6 @@
 @import 'utils/themes';
 @import 'utils/variables';
 @import 'utils/mixins';
-
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // component imports
 @import 'components/navigation';
