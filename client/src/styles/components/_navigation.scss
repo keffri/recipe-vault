@@ -5,14 +5,20 @@
   }
 
   &__link {
+    color: #000;
     margin: 0 1rem;
     font-size: 1.25rem;
+
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
   }
 
   &__button {
     border: none;
-    border-radius: 1rem;
-    padding: 2px 1rem;
+    border-radius: 0.5rem;
+    padding: 4px 1rem;
     background-color: #698474;
     color: #fff;
   }
