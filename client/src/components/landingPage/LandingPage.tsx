@@ -27,6 +27,7 @@ const LandingPage: FC = () => {
         <p className="landing__text landing--medium">
           Access all of your favorite recipes in one location!
         </p>
+        <button className="landing__button">Get Started!</button>
       </div>
     </section>
   );
