@@ -10916,18 +10916,27 @@ table {
   justify-content: flex-end;
 }
 
+.navbar-nav {
+  align-items: center;
+}
+
 .navigation__title {
   font-weight: bold;
   font-size: 1.75rem;
 }
 .navigation__link {
+  color: #000;
   margin: 0 1rem;
   font-size: 1.25rem;
 }
+.navigation__link:hover {
+  color: #000;
+  text-decoration: underline;
+}
 .navigation__button {
   border: none;
-  border-radius: 1rem;
-  padding: 2px 1rem;
+  border-radius: 0.5rem;
+  padding: 4px 1rem;
   background-color: #698474;
   color: #fff;
 }
