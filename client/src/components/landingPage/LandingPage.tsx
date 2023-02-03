@@ -7,7 +7,7 @@ const LandingPage: FC = () => {
   return (
     <section className="landing">
       <div className="landing__container">
-        <h1 className="landing__title">Recipe Bank</h1>
+        <h1 className="landing__title">Recipe Vault</h1>
         <div className="landing__description">
           <ul className="landing__list">
             <li>
