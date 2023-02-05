@@ -6,12 +6,19 @@ import LandingPage from './landingPage/LandingPage';
 const App: FC = () => {
   const [showModal, setShowModal] = useState(false);
 
+  const modalDisplay = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <BrowserRouter>
       <div className="app">
-        <Navigation />
+        <Navigation modalDisplay={modalDisplay} />
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/"
+            element={<LandingPage modalDisplay={modalDisplay} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
