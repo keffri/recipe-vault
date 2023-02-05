@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
 interface ModalProps {
-  modalDisplay: () => void;
+  openLoginModal: () => void;
 }
 
 const Navigation: FC<ModalProps> = (props: ModalProps) => {
@@ -24,7 +24,7 @@ const Navigation: FC<ModalProps> = (props: ModalProps) => {
             <Nav.Link href="#" className="navigation__link">
               <button
                 className="navigation__button"
-                onClick={() => props.modalDisplay()}
+                onClick={() => props.openLoginModal()}
               >
                 Get started!
               </button>
