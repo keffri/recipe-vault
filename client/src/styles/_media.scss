@@ -5,6 +5,11 @@
 }
 
 @media only screen and (max-width: 515px) {
+  .login {
+    min-height: 650px;
+    min-width: 400px;
+  }
+
   .landing__list {
     flex-direction: column;
     align-items: center;
