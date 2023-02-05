@@ -12,6 +12,7 @@
 
 // component imports
 @import 'components/navigation';
+@import 'components/login';
 @import 'components/landingPage';
 
 *,
@@ -25,6 +26,7 @@ body,
 #root,
 .App {
   min-height: 100vh;
+  position: relative;
   font-family: Arial, Helvetica, sans-serif;
 }
 
