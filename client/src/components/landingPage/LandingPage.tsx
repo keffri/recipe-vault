@@ -3,7 +3,11 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
-const LandingPage: FC = () => {
+interface ModalProps {
+  modalDisplay: () => void;
+}
+
+const LandingPage: FC<ModalProps> = (props: ModalProps) => {
   return (
     <section className="landing">
       <div className="landing__container">
@@ -27,7 +31,12 @@ const LandingPage: FC = () => {
         <p className="landing__text landing--medium">
           Access all of your favorite recipes in one location!
         </p>
-        <button className="landing__button">Get started!</button>
+        <button
+          className="landing__button"
+          onClick={() => props.modalDisplay()}
+        >
+          Get started!
+        </button>
       </div>
     </section>
   );

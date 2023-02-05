@@ -3,7 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
-const Navigation: FC = () => {
+interface ModalProps {
+  modalDisplay: () => void;
+}
+
+const Navigation: FC<ModalProps> = (props: ModalProps) => {
   return (
     <Navbar expand="lg" className="navigation sticky-top">
       <Container>
@@ -18,7 +22,12 @@ const Navigation: FC = () => {
               Features
             </Nav.Link>
             <Nav.Link href="#" className="navigation__link">
-              <button className="navigation__button">Get started!</button>
+              <button
+                className="navigation__button"
+                onClick={() => props.modalDisplay()}
+              >
+                Get started!
+              </button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
