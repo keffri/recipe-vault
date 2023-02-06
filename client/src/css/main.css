@@ -10949,6 +10949,7 @@ table {
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
+  border: solid 1px #000;
   min-height: 475px;
   min-width: 450px;
   transform: translate(-50%, -50%);
@@ -10961,7 +10962,14 @@ table {
   text-decoration: underline;
 }
 .login__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #fff;
   outline-color: transparent;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
 }
 
 .landing {
@@ -11038,14 +11046,14 @@ body,
 }
 @media only screen and (max-width: 515px) {
   .login {
-    min-height: 650px;
-    min-width: 400px;
+    min-height: 375px;
+    min-width: 350px;
   }
   .landing__list {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 15rem;
+    height: 12rem;
   }
   .landing__text {
     text-align: center;
