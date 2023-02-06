@@ -15,10 +15,10 @@ const Navigation: FC<ModalProps> = (props: ModalProps) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="me_auto">
-            <Nav.Link href="#" className="navigation__link">
+            <Nav.Link href="/" className="navigation__link">
               Home
             </Nav.Link>
-            <Nav.Link href="#" className="navigation__link">
+            <Nav.Link href="/features" className="navigation__link">
               Features
             </Nav.Link>
             <Nav.Link href="#" className="navigation__link">
