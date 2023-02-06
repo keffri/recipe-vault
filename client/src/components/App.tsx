@@ -18,12 +18,12 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <div className="app">
-        <Navigation modalDisplay={modalDisplay} />
-        {showModal && <Login />}
+        <Navigation openLoginModal={openLoginModal} />
+        {showLoginModal && <Login closeLoginModal={closeLoginModal} />}
         <Routes>
           <Route
             path="/"
-            element={<LandingPage modalDisplay={modalDisplay} />}
+            element={<LandingPage openLoginModal={openLoginModal} />}
           />
         </Routes>
       </div>
