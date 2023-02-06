@@ -2,8 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../components/App';
 
-test('LandingPage component being rendered to screen', () => {
+test('Navigation and LandingPage components being rendered to screen', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Hello landing page!/i);
-  expect(linkElement).toBeInTheDocument();
+  const navElement = screen.getByText(/Features/i);
+  const landingElement = screen.getByText(/Tag/i);
+  expect(navElement).toBeInTheDocument();
+  expect(landingElement).toBeInTheDocument();
 });
