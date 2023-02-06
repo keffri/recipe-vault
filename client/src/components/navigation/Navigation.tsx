@@ -23,6 +23,7 @@ const Navigation: FC<ModalProps> = (props: ModalProps) => {
             </Nav.Link>
             <Nav.Link href="#" className="navigation__link">
               <button
+                data-testid="button"
                 className="navigation__button"
                 onClick={() => props.openLoginModal()}
               >
