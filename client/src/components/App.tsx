@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './navigation/Navigation';
 import Login from './login/Login';
 import LandingPage from './landingPage/LandingPage';
+import Features from './features/Features';
 
 const App: FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -25,6 +26,7 @@ const App: FC = () => {
             path="/"
             element={<LandingPage openLoginModal={openLoginModal} />}
           />
+          <Route path="/features" element={<Features />} />
         </Routes>
       </div>
     </BrowserRouter>
