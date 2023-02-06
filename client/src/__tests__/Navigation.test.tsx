@@ -5,7 +5,7 @@ import Navigation from '../components/navigation/Navigation';
 describe('Navigation rendering functionality', () => {
   it('Navigation text present', () => {
     render(<Navigation />);
-    const navigationText = screen.getByText('Navbar');
+    const navigationText = screen.getByText('Recipe Vault');
     expect(navigationText).toBeInTheDocument();
   });
 });
