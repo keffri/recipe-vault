@@ -11,3 +11,16 @@ test('Login modal displayed on button click', async () => {
 
   expect(screen.getByText('Login')).toBeInTheDocument();
 });
+
+test('Login modal closed on button click', async () => {
+  const user = userEvent.setup();
+  render(<App />);
+
+  await user.click(screen.getByTestId('button'));
+
+  expect(screen.getByText('Login')).toBeInTheDocument();
+
+  await user.click(screen.getByTestId('button-close'));
+
+  expect(screen.queryByText('Login')).not.toBeInTheDocument();
+});
