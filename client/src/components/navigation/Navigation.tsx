@@ -9,7 +9,7 @@ interface ModalProps {
 
 const Navigation: FC<ModalProps> = (props: ModalProps) => {
   return (
-    <Navbar expand="lg" className="navigation sticky-top">
+    <Navbar collapseOnSelect expand="lg" className="navigation sticky-top">
       <Container>
         <Navbar.Brand className="navigation__title">Recipe Vault</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
