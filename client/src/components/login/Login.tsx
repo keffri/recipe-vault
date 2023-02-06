@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface ModalProps {
   closeLoginModal: () => void;
@@ -9,7 +10,7 @@ const Login: FC<ModalProps> = (props: ModalProps) => {
     <section className="login">
       <h1 className="login__title">Login</h1>
       <button className="login__close" onClick={() => props.closeLoginModal()}>
-        Close
+        <CloseIcon />
       </button>
     </section>
   );
