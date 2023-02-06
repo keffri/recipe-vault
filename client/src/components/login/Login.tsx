@@ -9,7 +9,11 @@ const Login: FC<ModalProps> = (props: ModalProps) => {
   return (
     <section className="login">
       <h1 className="login__title">Login</h1>
-      <button className="login__close" onClick={() => props.closeLoginModal()}>
+      <button
+        data-testid="button-close"
+        className="login__close"
+        onClick={() => props.closeLoginModal()}
+      >
         <CloseIcon />
       </button>
     </section>
