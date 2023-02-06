@@ -1,5 +1,5 @@
 import React from 'react';
-import { findByTestId, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Navigation, { ModalProps } from '../components/navigation/Navigation';
 
 function renderNavigation(props: Partial<ModalProps> = {}) {
