@@ -1,18 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Navigation, { ModalProps } from '../components/navigation/Navigation';
+import App from '../components/App';
+import userEvent from '@testing-library/user-event';
 
-function renderNavigation(props: Partial<ModalProps> = {}) {
-  const defaultProps: ModalProps = {
-    openLoginModal() {
-      return;
-    },
-  };
-  return render(<Navigation {...defaultProps} {...props} />);
-}
+test('Login modal displayed on button click', async () => {
+  const user = userEvent.setup();
+  render(<App />);
 
-test('Login modal displayed on button button click', async () => {
-  renderNavigation();
+  await user.click(screen.getByTestId('button'));
 
-  expect(screen.getByText('Recipe Vault')).toBeInTheDocument();
+  expect(screen.getByText('Login')).toBeInTheDocument();
 });
