@@ -13,9 +13,9 @@ interface CardProps {
 const FeaturesCard: FC<CardProps> = (props: CardProps) => {
   return (
     <section className="featuresCard">
-      <h1>{props.card.title}</h1>
-      {props.card.icon}
-      <p>{props.card.description}</p>
+      <div className="featuresCard__icon">{props.card.icon}</div>
+      <h2 className="featuresCard__title">{props.card.title}</h2>
+      <p className="featuresCard__description">{props.card.description}</p>
     </section>
   );
 };
