@@ -11085,6 +11085,12 @@ body,
   .navbar-collapse {
     text-align: center;
   }
+  .features {
+    align-items: center;
+  }
+  .features__container {
+    flex-wrap: wrap;
+  }
 }
 @media only screen and (max-width: 515px) {
   .login {
