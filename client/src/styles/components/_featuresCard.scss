@@ -1,2 +1,25 @@
 .featuresCard {
+  min-height: 400px;
+  min-width: 300px;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  &__title {
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+
+  &__description {
+    max-width: 250px;
+    line-height: 1.5rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
 }
