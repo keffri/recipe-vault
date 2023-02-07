@@ -12,19 +12,40 @@ type Card = {
 
 const createFeature: Card = {
   title: 'Create',
-  icon: <AddCircleOutlineOutlinedIcon />,
+  icon: (
+    <AddCircleOutlineOutlinedIcon
+      sx={{
+        width: '3rem',
+        height: '3rem',
+      }}
+    />
+  ),
   description: 'description',
 };
 
 const tagFeature: Card = {
   title: 'Tag',
-  icon: <LocalOfferOutlinedIcon />,
+  icon: (
+    <LocalOfferOutlinedIcon
+      sx={{
+        width: '3rem',
+        height: '3rem',
+      }}
+    />
+  ),
   description: 'description',
 };
 
 const saveFeature: Card = {
   title: 'Save',
-  icon: <BookmarkBorderOutlinedIcon />,
+  icon: (
+    <BookmarkBorderOutlinedIcon
+      sx={{
+        width: '3rem',
+        height: '3rem',
+      }}
+    />
+  ),
   description: 'description',
 };
 
