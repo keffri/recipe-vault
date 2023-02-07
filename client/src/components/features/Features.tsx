@@ -20,7 +20,7 @@ const createFeature: Card = {
       }}
     />
   ),
-  description: 'description',
+  description: 'Create, customize and edit recipes to fit your specific needs.',
 };
 
 const tagFeature: Card = {
@@ -33,7 +33,8 @@ const tagFeature: Card = {
       }}
     />
   ),
-  description: 'description',
+  description:
+    'Tag your recipes to keep them organized, and access them faster.',
 };
 
 const saveFeature: Card = {
@@ -46,7 +47,7 @@ const saveFeature: Card = {
       }}
     />
   ),
-  description: 'description',
+  description: 'Save your recipes for viewing whenever or wherever needed.',
 };
 
 const Features: FC = () => {
