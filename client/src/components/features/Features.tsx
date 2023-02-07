@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import FeaturesCard from './FeaturesCard';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
 type Card = {
   title: string;
@@ -9,19 +12,19 @@ type Card = {
 
 const createFeature: Card = {
   title: 'Create',
-  icon: 'icon',
+  icon: <AddCircleOutlineOutlinedIcon />,
   description: 'description',
 };
 
 const tagFeature: Card = {
   title: 'Tag',
-  icon: 'icon',
+  icon: <LocalOfferOutlinedIcon />,
   description: 'description',
 };
 
 const saveFeature: Card = {
   title: 'Save',
-  icon: 'icon',
+  icon: <BookmarkBorderOutlinedIcon />,
   description: 'description',
 };
 
