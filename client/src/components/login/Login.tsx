@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
+import LoginButton from './LoginButton';
 
 interface ModalProps {
   closeLoginModal: () => void;
@@ -16,6 +17,7 @@ const Login: FC<ModalProps> = (props: ModalProps) => {
       >
         <CloseIcon />
       </button>
+      <LoginButton />
     </section>
   );
 };
