@@ -7,6 +7,8 @@
     align-items: center;
 
     &__container {
+      flex-direction: row;
+      justify-content: center;
       flex-wrap: wrap;
     }
   }
