@@ -5,8 +5,15 @@ import Login from './login/Login';
 import LandingPage from './landingPage/LandingPage';
 import Features from './features/Features';
 
+type User = {
+  email: string;
+  name: string;
+  picture: string;
+};
+
 const App: FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
   const openLoginModal = () => {
     setShowLoginModal(true);
@@ -16,11 +23,27 @@ const App: FC = () => {
     setShowLoginModal(false);
   };
 
+  const updateUser = (user: User) => {
+    if (user) {
+      setUserCallback(user);
+    }
+  };
+
+  const setUserCallback = (data: User) => {
+    setUser(data);
+  };
+
   return (
     <BrowserRouter>
       <div className="app">
         <Navigation openLoginModal={openLoginModal} />
-        {showLoginModal && <Login closeLoginModal={closeLoginModal} />}
+        {showLoginModal && (
+          <Login
+            closeLoginModal={closeLoginModal}
+            user={user}
+            updateUser={updateUser}
+          />
+        )}
         <Routes>
           <Route
             path="/"
