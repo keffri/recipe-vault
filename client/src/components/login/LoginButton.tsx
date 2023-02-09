@@ -3,7 +3,18 @@ import { Google } from '@mui/icons-material';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
-const LoginButton: FC = () => {
+type User = {
+  email: string;
+  name: string;
+  picture: string;
+};
+
+interface LoginProps {
+  user: User | null;
+  updateUser: (user: User) => void;
+}
+
+const LoginButton: FC<LoginProps> = (props: LoginProps) => {
   const login = useGoogleLogin({
     onSuccess: async (response) => {
       try {
@@ -16,6 +27,12 @@ const LoginButton: FC = () => {
           }
         );
         console.log(data);
+        let userData = {
+          email: data.data.email,
+          name: data.data.name,
+          picture: data.data.email,
+        };
+        props.updateUser(userData);
       } catch (err) {
         console.log(err);
       }
