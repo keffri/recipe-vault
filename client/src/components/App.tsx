@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './navigation/Navigation';
 import Login from './login/Login';
 import LandingPage from './landingPage/LandingPage';
+import Home from './home/Home';
 import Features from './features/Features';
 
 type User = {
@@ -45,10 +46,13 @@ const App: FC = () => {
           />
         )}
         <Routes>
-          <Route
-            path="/"
-            element={<LandingPage openLoginModal={openLoginModal} />}
-          />
+          {!user && (
+            <Route
+              path="/"
+              element={<LandingPage openLoginModal={openLoginModal} />}
+            />
+          )}
+          {user && <Route path="/" element={<Home user={user} />} />}
           <Route path="/features" element={<Features />} />
         </Routes>
       </div>
