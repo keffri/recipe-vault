@@ -10975,6 +10975,28 @@ table {
   font-weight: bold;
 }
 
+.loginButton {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+  outline-color: transparent;
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  background-color: #e5e4cc;
+  box-shadow: 4px 4px 5px #000;
+  transition: all 0.1s;
+}
+.loginButton:active {
+  transform: translateX(3px);
+  transform: translateY(3px);
+  box-shadow: none;
+}
+.loginButton__text {
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
 .landing {
   width: 100%;
   height: calc(100vh - 60px);
