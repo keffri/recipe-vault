@@ -24,8 +24,8 @@ const LoginButton: FC = () => {
 
   return (
     <button className="loginButton" onClick={() => login()}>
-      <p className="loginButton__text">Continue with Google</p>
       <Google />
+      <p className="loginButton__text">Continue with Google</p>
     </button>
   );
 };
