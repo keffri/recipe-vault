@@ -1,11 +1,12 @@
 .features {
   width: 100%;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #e5e4cc;
   color: #698474;
+  overflow: auto;
 
   &__title {
     font-size: 3rem;
@@ -14,6 +15,7 @@
   }
 
   &__container {
+    margin: 0.5rem;
     display: flex;
   }
 }
