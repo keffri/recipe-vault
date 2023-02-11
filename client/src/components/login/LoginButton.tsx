@@ -12,6 +12,7 @@ type User = {
 interface LoginProps {
   user: User | null;
   updateUser: (user: User) => void;
+  closeLoginModal: () => void;
 }
 
 const LoginButton: FC<LoginProps> = (props: LoginProps) => {
@@ -40,7 +41,13 @@ const LoginButton: FC<LoginProps> = (props: LoginProps) => {
   });
 
   return (
-    <button className="loginButton" onClick={() => login()}>
+    <button
+      className="loginButton"
+      onClick={() => {
+        props.closeLoginModal();
+        login();
+      }}
+    >
       <Google />
       <p className="loginButton__text">Continue with Google</p>
     </button>

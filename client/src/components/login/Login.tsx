@@ -24,7 +24,11 @@ const Login: FC<LoginProps> = (props: LoginProps) => {
       >
         <CloseIcon />
       </button>
-      <LoginButton user={props.user} updateUser={props.updateUser} />
+      <LoginButton
+        user={props.user}
+        updateUser={props.updateUser}
+        closeLoginModal={props.closeLoginModal}
+      />
     </section>
   );
 };
