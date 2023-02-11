@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
 
 export interface ModalProps {
   openLoginModal: () => void;
@@ -15,11 +16,11 @@ const Navigation: FC<ModalProps> = (props: ModalProps) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="me_auto">
-            <Nav.Link href="/" className="navigation__link">
-              Home
+            <Nav.Link className="navigation__link">
+              <Link to="/">Home</Link>
             </Nav.Link>
-            <Nav.Link href="/features" className="navigation__link">
-              Features
+            <Nav.Link className="navigation__link">
+              <Link to="/features">Features</Link>
             </Nav.Link>
             <Nav.Link href="#" className="navigation__link">
               <button
