@@ -37,7 +37,7 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <div className="app">
-        <Navigation openLoginModal={openLoginModal} />
+        <Navigation openLoginModal={openLoginModal} user={user} />
         {showLoginModal && (
           <Login
             closeLoginModal={closeLoginModal}

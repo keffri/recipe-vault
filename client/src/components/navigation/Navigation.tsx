@@ -4,11 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 
-export interface ModalProps {
+type User = {
+  email: string;
+  name: string;
+  picture: string;
+};
+
+export interface NavProps {
   openLoginModal: () => void;
+  user: User | null;
 }
 
-const Navigation: FC<ModalProps> = (props: ModalProps) => {
+const Navigation: FC<NavProps> = (props: NavProps) => {
   return (
     <Navbar collapseOnSelect expand="lg" className="navigation sticky-top">
       <Container>
@@ -26,15 +33,17 @@ const Navigation: FC<ModalProps> = (props: ModalProps) => {
                 Features
               </Link>
             </Nav.Link>
-            <Nav.Link href="#" className="navigation__link">
-              <button
-                data-testid="button"
-                className="navigation__button"
-                onClick={() => props.openLoginModal()}
-              >
-                Get started!
-              </button>
-            </Nav.Link>
+            {!props.user && (
+              <Nav.Link href="#" className="navigation__link">
+                <button
+                  data-testid="button"
+                  className="navigation__button"
+                  onClick={() => props.openLoginModal()}
+                >
+                  Get started!
+                </button>
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
