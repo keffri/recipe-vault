@@ -7,3 +7,5 @@ const Vault: FC = () => {
     </section>
   );
 };
+
+export default Vault;
