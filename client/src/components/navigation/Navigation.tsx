@@ -23,30 +23,22 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse>
           <Nav className="me_auto">
-            <Nav.Link>
-              <Link to="/" className="navigation__link">
-                Home
-              </Link>
+            <Nav.Link as={Link} to="/" className="navigation__link">
+              Home
             </Nav.Link>
             {props.user && (
-              <Nav.Link>
-                <Link to="/create" className="navigation__link">
-                  Create
-                </Link>
+              <Nav.Link as={Link} to="/create" className="navigation__link">
+                Create
               </Nav.Link>
             )}
             {props.user && (
-              <Nav.Link>
-                <Link to="/vault" className="navigation__link">
-                  Vault
-                </Link>
+              <Nav.Link as={Link} to="/vault" className="navigation__link">
+                Vault
               </Nav.Link>
             )}
             {!props.user && (
-              <Nav.Link>
-                <Link to="/features" className="navigation__link">
-                  Features
-                </Link>
+              <Nav.Link as={Link} to="/features" className="navigation__link">
+                Features
               </Nav.Link>
             )}
             {!props.user && (
