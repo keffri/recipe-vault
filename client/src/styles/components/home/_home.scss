@@ -6,4 +6,10 @@
   align-items: center;
   background-color: #e5e4cc;
   color: #698474;
+
+  &__title {
+    font-size: 3rem;
+    text-decoration: underline;
+    margin: 3rem 0;
+  }
 }
