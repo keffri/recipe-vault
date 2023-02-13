@@ -5,6 +5,8 @@ import Login from './login/Login';
 import LandingPage from './landingPage/LandingPage';
 import Home from './home/Home';
 import Features from './features/Features';
+import Create from './create/Create';
+import Vault from './vault/Vault';
 
 type User = {
   email: string;
@@ -54,6 +56,8 @@ const App: FC = () => {
           )}
           {user && <Route path="/" element={<Home user={user} />} />}
           <Route path="/features" element={<Features />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/vault" element={<Vault />} />
         </Routes>
       </div>
     </BrowserRouter>
