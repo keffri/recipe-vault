@@ -11060,6 +11060,11 @@ table {
   background-color: #e5e4cc;
   color: #698474;
 }
+.home__title {
+  font-size: 3rem;
+  text-decoration: underline;
+  margin: 3rem 0;
+}
 
 .features {
   width: 100%;
