@@ -11105,6 +11105,34 @@ table {
   word-wrap: break-word;
 }
 
+.create {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e4cc;
+  color: #698474;
+}
+.create__title {
+  font-size: 3rem;
+  text-decoration: underline;
+}
+
+.vault {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e4cc;
+  color: #698474;
+}
+.vault__title {
+  font-size: 3rem;
+  text-decoration: underline;
+}
+
 *,
 *::before,
 *::after {
