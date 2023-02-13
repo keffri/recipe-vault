@@ -11051,6 +11051,16 @@ table {
   color: #fff;
 }
 
+.home {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e4cc;
+  color: #698474;
+}
+
 .features {
   width: 100%;
   min-height: calc(100vh - 60px);
