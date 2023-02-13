@@ -10,6 +10,12 @@
   &__title {
     font-size: 3rem;
     text-decoration: underline;
-    margin: 3rem 0;
+    margin: 1rem 0;
+  }
+
+  &__picture {
+    border-radius: 5rem;
+    border: solid 3px #698474;
+    margin-bottom: 1rem;
   }
 }
