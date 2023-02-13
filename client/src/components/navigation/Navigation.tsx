@@ -28,6 +28,20 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
                 Home
               </Link>
             </Nav.Link>
+            {props.user && (
+              <Nav.Link>
+                <Link to="/create" className="navigation__link">
+                  Create
+                </Link>
+              </Nav.Link>
+            )}
+            {props.user && (
+              <Nav.Link>
+                <Link to="/vault" className="navigation__link">
+                  Vault
+                </Link>
+              </Nav.Link>
+            )}
             {!props.user && (
               <Nav.Link>
                 <Link to="/features" className="navigation__link">
