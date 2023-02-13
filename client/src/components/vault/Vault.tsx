@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 const Vault: FC = () => {
   return (
-    <section>
-      <h1>Vault</h1>
+    <section className="vault">
+      <h1 className="vault__title">Vault</h1>
     </section>
   );
 };
