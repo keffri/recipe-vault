@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 const Create: FC = () => {
   return (
-    <section>
-      <h1>Create</h1>
+    <section className="create">
+      <h1 className="create__title">Create</h1>
     </section>
   );
 };
