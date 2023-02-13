@@ -31,7 +31,7 @@ const LoginButton: FC<LoginProps> = (props: LoginProps) => {
         let userData = {
           email: data.data.email,
           name: data.data.name,
-          picture: data.data.email,
+          picture: data.data.picture,
         };
         props.updateUser(userData);
       } catch (err) {
