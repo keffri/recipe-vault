@@ -14,8 +14,13 @@ const Home: FC<UserProps> = (props: UserProps) => {
   return (
     <section className="home">
       <h1 className="home__title">Home</h1>
-      <img src={props.user!.picture} alt="google profile" />
-      <p>Welcome {props.user!.name}!</p>
+      <img
+        className="home__picture"
+        src={props.user!.picture}
+        alt="google profile"
+        referrerPolicy="no-referrer"
+      />
+      <p className="home__welcome">Welcome {props.user!.name}!</p>
     </section>
   );
 };
