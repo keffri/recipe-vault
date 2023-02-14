@@ -21,6 +21,11 @@ const Home: FC<UserProps> = (props: UserProps) => {
         referrerPolicy="no-referrer"
       />
       <p className="home__welcome">Welcome {props.user!.name}!</p>
+
+      <div className="home__buttons">
+        <button className="home__button">Create</button>
+        <button className="home__button">Vault</button>
+      </div>
     </section>
   );
 };
