@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 type User = {
   email: string;
@@ -23,8 +24,12 @@ const Home: FC<UserProps> = (props: UserProps) => {
       <p className="home__welcome">Welcome {props.user!.name}!</p>
 
       <div className="home__buttons">
-        <button className="home__button">Create</button>
-        <button className="home__button">Vault</button>
+        <Link to="/create">
+          <button className="home__button">Create</button>
+        </Link>
+        <Link to="/vault">
+          <button className="home__button">Vault</button>
+        </Link>
       </div>
     </section>
   );
