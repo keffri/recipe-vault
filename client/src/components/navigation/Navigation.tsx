@@ -8,14 +8,19 @@ type User = {
   email: string;
   name: string;
   picture: string;
-};
+} | null;
 
 export interface NavProps {
   openLoginModal: () => void;
+  updateUser: (user: User) => void;
   user: User | null;
 }
 
 const Navigation: FC<NavProps> = (props: NavProps) => {
+  const logout = (user: User) => {
+    props.updateUser(user);
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="navigation sticky-top">
       <Container>
@@ -34,6 +39,19 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
             {props.user && (
               <Nav.Link as={Link} to="/vault" className="navigation__link">
                 Vault
+              </Nav.Link>
+            )}
+            {props.user && (
+              <Nav.Link href="#" className="navigation__link">
+                <button
+                  data-testid="buttonLogout"
+                  className="navigation__button"
+                  onClick={() => {
+                    logout(null);
+                  }}
+                >
+                  Sign Out
+                </button>
               </Nav.Link>
             )}
             {!props.user && (

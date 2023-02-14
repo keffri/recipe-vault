@@ -12,7 +12,7 @@ type User = {
   email: string;
   name: string;
   picture: string;
-};
+} | null;
 
 const App: FC = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -26,10 +26,8 @@ const App: FC = () => {
     setShowLoginModal(false);
   };
 
-  const updateUser = (user: User) => {
-    if (user) {
-      setUserCallback(user);
-    }
+  const updateUser = (user: User | null) => {
+    setUserCallback(user);
   };
 
   const setUserCallback = (data: User) => {
@@ -39,7 +37,11 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <div className="app">
-        <Navigation openLoginModal={openLoginModal} user={user} />
+        <Navigation
+          openLoginModal={openLoginModal}
+          user={user}
+          updateUser={updateUser}
+        />
         {showLoginModal && (
           <Login
             closeLoginModal={closeLoginModal}
