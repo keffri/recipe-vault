@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Google } from '@mui/icons-material';
-import { useGoogleLogin } from '@react-oauth/google';
+import { TokenResponse, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 
 type User = {
@@ -16,28 +16,32 @@ interface LoginProps {
 }
 
 const LoginButton: FC<LoginProps> = (props: LoginProps) => {
+  const googleOauthSuccess = async (
+    response: Omit<TokenResponse, 'error' | 'error_description' | 'error_uri'>
+  ) => {
+    try {
+      const data = await axios.get(
+        'https://www.googleapis.com/oauth2/v3/userinfo',
+        {
+          headers: {
+            Authorization: `Bearer ${response.access_token}`,
+          },
+        }
+      );
+      console.log(data);
+      let userData = {
+        email: data.data.email,
+        name: data.data.name,
+        picture: data.data.picture,
+      };
+      props.updateUser(userData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const login = useGoogleLogin({
-    onSuccess: async (response) => {
-      try {
-        const data = await axios.get(
-          'https://www.googleapis.com/oauth2/v3/userinfo',
-          {
-            headers: {
-              Authorization: `Bearer ${response.access_token}`,
-            },
-          }
-        );
-        console.log(data);
-        let userData = {
-          email: data.data.email,
-          name: data.data.name,
-          picture: data.data.picture,
-        };
-        props.updateUser(userData);
-      } catch (err) {
-        console.log(err);
-      }
-    },
+    onSuccess: googleOauthSuccess,
   });
 
   return (
