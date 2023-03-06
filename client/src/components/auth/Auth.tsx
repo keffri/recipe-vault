@@ -12,11 +12,31 @@ interface AuthProps {
 
 const Auth: FC<AuthProps> = (props: AuthProps) => {
   const [loggingIn, setLoggingIn] = useState(true);
-  const [authError, setAuthError] = useState(null);
+  const [authError, setAuthError] = useState('');
+  const [authInfo, setAuthInfo] = useState({
+    email: '',
+    password: '',
+    confirm_password: '',
+  });
 
   const switchAuth = (status: boolean) => {
-    setAuthError(null);
+    setAuthError('');
     setLoggingIn(status);
+    setAuthInfo({
+      email: '',
+      password: '',
+      confirm_password: '',
+    });
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLInputElement>,
+    endpoint: string
+  ) => {
+    e.preventDefault();
+    if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
+      setAuthError('Make sure passwords match.');
+    }
   };
 
   return (
@@ -34,9 +54,36 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
         <CloseIcon />
       </button>
       <form className="auth__form">
-        <input type="email" placeholder="email" />
-        <input type="password" placeholder="password" />
-        {!loggingIn && <input type="password" placeholder="confirm password" />}
+        <input
+          type="email"
+          placeholder="email"
+          value={authInfo.email}
+          onChange={(e) => setAuthInfo({ ...authInfo, email: e.target.value })}
+        />
+        <input
+          type="password"
+          placeholder="password"
+          value={authInfo.password}
+          onChange={(e) =>
+            setAuthInfo({ ...authInfo, password: e.target.value })
+          }
+        />
+        {!loggingIn && (
+          <input
+            type="password"
+            placeholder="confirm password"
+            value={authInfo.confirm_password}
+            onChange={(e) =>
+              setAuthInfo({ ...authInfo, confirm_password: e.target.value })
+            }
+          />
+        )}
+        <input
+          type="submit"
+          className="auth__submit"
+          onClick={(e) => handleSubmit(e, loggingIn ? 'login' : 'signup')}
+          value={loggingIn ? 'Log In' : 'Sign Up'}
+        />
       </form>
       {authError && <p className="auth__error">{authError}</p>}
       {loggingIn ? (
