@@ -30,4 +30,20 @@
     background-color: transparent;
     font-weight: bold;
   }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 4px 0;
+      padding: 4px 0;
+    }
+  }
+
+  &--text {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
