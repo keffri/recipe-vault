@@ -10,7 +10,7 @@ type User = {
 } | null;
 
 export interface NavProps {
-  openLoginModal: () => void;
+  openAuthModal: () => void;
   updateUser: (user: User) => void;
   user: User | null;
 }
@@ -56,7 +56,7 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
                 <button
                   data-testid="button"
                   className="navigation__button"
-                  onClick={() => props.openLoginModal()}
+                  onClick={() => props.openAuthModal()}
                 >
                   Get started!
                 </button>

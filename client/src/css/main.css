@@ -10945,7 +10945,7 @@ table {
   color: #fff;
 }
 
-.login {
+.auth {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10961,12 +10961,12 @@ table {
   background-color: #698474;
   color: #e5e4cc;
 }
-.login__title {
+.auth__title {
   font-size: 2rem;
   padding: 1rem 0;
   text-decoration: underline;
 }
-.login__close {
+.auth__close {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -10975,28 +10975,6 @@ table {
   border: none;
   background-color: transparent;
   font-weight: bold;
-}
-
-.loginButton {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  padding: 2rem 1rem;
-  outline-color: transparent;
-  border: 2px solid #000;
-  border-radius: 0.5rem;
-  background-color: #e5e4cc;
-  box-shadow: 4px 4px 5px #000;
-  transition: all 0.1s;
-}
-.loginButton:active {
-  transform: translateX(3px);
-  transform: translateY(3px);
-  box-shadow: none;
-}
-.loginButton__text {
-  font-weight: bold;
-  margin-left: 1rem;
 }
 
 .landing {

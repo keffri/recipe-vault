@@ -4,7 +4,7 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
 interface ModalProps {
-  openLoginModal: () => void;
+  openAuthModal: () => void;
 }
 
 const LandingPage: FC<ModalProps> = (props: ModalProps) => {
@@ -33,7 +33,7 @@ const LandingPage: FC<ModalProps> = (props: ModalProps) => {
         </p>
         <button
           className="landing__button"
-          onClick={() => props.openLoginModal()}
+          onClick={() => props.openAuthModal()}
         >
           Get started!
         </button>

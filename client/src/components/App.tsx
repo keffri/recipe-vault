@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './navigation/Navigation';
-import Login from './login/Login';
+import Auth from './auth/Auth';
 import LandingPage from './landingPage/LandingPage';
 import Home from './home/Home';
 import Features from './features/Features';
@@ -14,15 +14,15 @@ type User = {
 } | null;
 
 const App: FC = () => {
-  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
-  const openLoginModal = () => {
-    setShowLoginModal(true);
+  const openAuthModal = () => {
+    setShowAuthModal(true);
   };
 
-  const closeLoginModal = () => {
-    setShowLoginModal(false);
+  const closeAuthModal = () => {
+    setShowAuthModal(false);
   };
 
   const updateUser = (user: User | null) => {
@@ -37,13 +37,13 @@ const App: FC = () => {
     <BrowserRouter>
       <div className="app">
         <Navigation
-          openLoginModal={openLoginModal}
+          openAuthModal={openAuthModal}
           user={user}
           updateUser={updateUser}
         />
-        {showLoginModal && (
-          <Login
-            closeLoginModal={closeLoginModal}
+        {showAuthModal && (
+          <Auth
+            closeAuthModal={closeAuthModal}
             user={user}
             updateUser={updateUser}
           />
@@ -52,7 +52,7 @@ const App: FC = () => {
           {!user && (
             <Route
               path="/"
-              element={<LandingPage openLoginModal={openLoginModal} />}
+              element={<LandingPage openAuthModal={openAuthModal} />}
             />
           )}
           {user && <Route path="/" element={<Home user={user} />} />}
