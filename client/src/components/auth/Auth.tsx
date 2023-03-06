@@ -6,8 +6,10 @@ type User = {
 };
 interface AuthProps {
   closeAuthModal: () => void;
-  user: User | null;
+  user: User;
   updateUser: (user: User) => void;
+  cookies: { [x: string]: any };
+  setCookie: (name: string, value: any) => void;
 }
 
 const Auth: FC<AuthProps> = (props: AuthProps) => {
@@ -36,6 +38,28 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     e.preventDefault();
     if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
       setAuthError('Make sure passwords match.');
+      return;
+    }
+
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVERURL}/${endpoint}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...authInfo }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.detail) {
+      setAuthError(data.detail);
+    } else {
+      props.updateUser((props.user.email = data.email));
+      props.setCookie('Email', data.email);
+      props.setCookie('AuthToken', data.token);
+
+      window.location.reload();
     }
   };
 

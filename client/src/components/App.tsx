@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import Navigation from './navigation/Navigation';
 import Auth from './auth/Auth';
 import LandingPage from './landingPage/LandingPage';
@@ -10,11 +11,12 @@ import Vault from './vault/Vault';
 
 type User = {
   email: string;
-} | null;
+};
 
 const App: FC = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User>({ email: '' });
+  const [cookies, setCookie, removeCookie] = useCookies(undefined);
 
   const openAuthModal = () => {
     setShowAuthModal(true);
@@ -24,7 +26,7 @@ const App: FC = () => {
     setShowAuthModal(false);
   };
 
-  const updateUser = (user: User | null) => {
+  const updateUser = (user: User) => {
     setUserCallback(user);
   };
 
@@ -39,22 +41,27 @@ const App: FC = () => {
           openAuthModal={openAuthModal}
           user={user}
           updateUser={updateUser}
+          removeCookie={removeCookie}
         />
         {showAuthModal && (
           <Auth
             closeAuthModal={closeAuthModal}
             user={user}
             updateUser={updateUser}
+            cookies={cookies}
+            setCookie={setCookie}
           />
         )}
         <Routes>
-          {!user && (
+          {user.email === '' && (
             <Route
               path="/"
               element={<LandingPage openAuthModal={openAuthModal} />}
             />
           )}
-          {user && <Route path="/" element={<Home user={user} />} />}
+          {user.email !== '' && (
+            <Route path="/" element={<Home user={user} />} />
+          )}
           <Route path="/features" element={<Features />} />
           <Route path="/create" element={<Create />} />
           <Route path="/vault" element={<Vault />} />

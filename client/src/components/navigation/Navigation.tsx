@@ -6,15 +6,22 @@ import { Link } from 'react-router-dom';
 
 type User = {
   email: string;
-} | null;
+};
 
 export interface NavProps {
   openAuthModal: () => void;
   updateUser: (user: User) => void;
-  user: User | null;
+  user: User;
+  removeCookie: (name: string) => void;
 }
 
 const Navigation: FC<NavProps> = (props: NavProps) => {
+  const signOut = () => {
+    props.removeCookie('Email');
+    props.removeCookie('AuthToken');
+    window.location.reload();
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" className="navigation sticky-top">
       <Container>
@@ -25,32 +32,33 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
             <Nav.Link as={Link} to="/" className="navigation__link">
               Home
             </Nav.Link>
-            {props.user && (
+            {props.user.email !== '' && (
               <Nav.Link as={Link} to="/create" className="navigation__link">
                 Create
               </Nav.Link>
             )}
-            {props.user && (
+            {props.user.email !== '' && (
               <Nav.Link as={Link} to="/vault" className="navigation__link">
                 Vault
               </Nav.Link>
             )}
-            {props.user && (
+            {props.user.email !== '' && (
               <Nav.Link href="#" className="navigation__link">
                 <button
                   data-testid="buttonLogout"
                   className="navigation__button"
+                  onClick={() => signOut}
                 >
                   Sign Out
                 </button>
               </Nav.Link>
             )}
-            {!props.user && (
+            {props.user.email === '' && (
               <Nav.Link as={Link} to="/features" className="navigation__link">
                 Features
               </Nav.Link>
             )}
-            {!props.user && (
+            {props.user.email === '' && (
               <Nav.Link href="#" className="navigation__link">
                 <button
                   data-testid="button"

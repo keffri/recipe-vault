@@ -6,7 +6,7 @@ type User = {
 };
 
 interface UserProps {
-  user: User | null;
+  user: User;
 }
 
 const Home: FC<UserProps> = (props: UserProps) => {
