@@ -10,7 +10,6 @@ import Vault from './vault/Vault';
 
 type User = {
   email: string;
-  name: string;
 } | null;
 
 const App: FC = () => {

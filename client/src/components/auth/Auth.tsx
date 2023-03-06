@@ -3,7 +3,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 type User = {
   email: string;
-  name: string;
 };
 interface AuthProps {
   closeAuthModal: () => void;

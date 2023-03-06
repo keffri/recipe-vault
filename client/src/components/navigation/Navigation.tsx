@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 type User = {
   email: string;
-  name: string;
 } | null;
 
 export interface NavProps {
