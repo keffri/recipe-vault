@@ -12,9 +12,21 @@ interface AuthProps {
 }
 
 const Auth: FC<AuthProps> = (props: AuthProps) => {
+  const [loggingIn, setLoggingIn] = useState(true);
+  const [authError, setAuthError] = useState(null);
+
+  const switchAuth = (status: boolean) => {
+    setAuthError(null);
+    setLoggingIn(status);
+  };
+
   return (
     <section className="auth">
-      <h1 className="auth__title">auth</h1>
+      {loggingIn ? (
+        <h1 className="auth__title">Login</h1>
+      ) : (
+        <h1 className="auth__title">Sign Up</h1>
+      )}
       <button
         data-testid="button-close"
         className="auth__close"
@@ -22,10 +34,29 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       >
         <CloseIcon />
       </button>
-      <form>
+      <form className="auth__form">
         <input type="email" placeholder="email" />
         <input type="password" placeholder="password" />
+        {!loggingIn && <input type="password" placeholder="confirm password" />}
       </form>
+      {authError && <p className="auth__error">{authError}</p>}
+      {loggingIn ? (
+        <p className="auth_message">
+          Not a member yet? Click{' '}
+          <span className="auth--text" onClick={() => switchAuth(false)}>
+            here
+          </span>{' '}
+          to sign up!
+        </p>
+      ) : (
+        <p className="auth_message">
+          Already a member? Click{' '}
+          <span className="auth--text" onClick={() => switchAuth(true)}>
+            here
+          </span>{' '}
+          to log in!
+        </p>
+      )}
     </section>
   );
 };
