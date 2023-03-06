@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import LoginButton from './LoginButton';
 
 type User = {
   email: string;
   name: string;
-  picture: string;
 };
 interface LoginProps {
   closeLoginModal: () => void;
@@ -24,11 +22,6 @@ const Login: FC<LoginProps> = (props: LoginProps) => {
       >
         <CloseIcon />
       </button>
-      <LoginButton
-        user={props.user}
-        updateUser={props.updateUser}
-        closeLoginModal={props.closeLoginModal}
-      />
     </section>
   );
 };

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 type User = {
   email: string;
   name: string;
-  picture: string;
 } | null;
 
 export interface NavProps {
@@ -17,10 +16,6 @@ export interface NavProps {
 }
 
 const Navigation: FC<NavProps> = (props: NavProps) => {
-  const logout = (user: User) => {
-    props.updateUser(user);
-  };
-
   return (
     <Navbar collapseOnSelect expand="lg" className="navigation sticky-top">
       <Container>
@@ -46,9 +41,6 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
                 <button
                   data-testid="buttonLogout"
                   className="navigation__button"
-                  onClick={() => {
-                    logout(null);
-                  }}
                 >
                   Sign Out
                 </button>

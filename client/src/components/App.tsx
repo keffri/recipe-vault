@@ -11,7 +11,6 @@ import Vault from './vault/Vault';
 type User = {
   email: string;
   name: string;
-  picture: string;
 } | null;
 
 const App: FC = () => {
