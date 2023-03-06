@@ -1,6 +1,7 @@
 const pool = require('../db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { v4: uuidv4 } = require('uuid');
 const { body, validationResult } = require('express-validator');
 import { Request, Response } from 'express';
 
@@ -27,12 +28,13 @@ exports.signup_post = [
     }
 
     const { email, password, confirm_password } = req.body;
+    const id = uuidv4();
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
     try {
       const signUp = await pool.query(
-        `INSERT INTO users (email, hashed_password) VALUES($1, $2)`,
-        [email, hashedPassword]
+        `INSERT INTO users (id, email, hashed_password) VALUES($1, $2, $3)`,
+        [id, email, hashedPassword]
       );
 
       const token = jwt.sign({ email }, 'secret', { expiresIn: '1hr' });
