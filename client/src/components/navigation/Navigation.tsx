@@ -13,6 +13,7 @@ export interface NavProps {
   updateUser: (user: User) => void;
   user: User;
   removeCookie: (name: string) => void;
+  authToken: any;
 }
 
 const Navigation: FC<NavProps> = (props: NavProps) => {
@@ -32,33 +33,33 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
             <Nav.Link as={Link} to="/" className="navigation__link">
               Home
             </Nav.Link>
-            {props.user.email !== '' && (
+            {props.authToken && (
               <Nav.Link as={Link} to="/create" className="navigation__link">
                 Create
               </Nav.Link>
             )}
-            {props.user.email !== '' && (
+            {props.authToken && (
               <Nav.Link as={Link} to="/vault" className="navigation__link">
                 Vault
               </Nav.Link>
             )}
-            {props.user.email !== '' && (
+            {props.authToken && (
               <Nav.Link href="#" className="navigation__link">
                 <button
                   data-testid="buttonLogout"
                   className="navigation__button"
-                  onClick={() => signOut}
+                  onClick={() => signOut()}
                 >
                   Sign Out
                 </button>
               </Nav.Link>
             )}
-            {props.user.email === '' && (
+            {!props.authToken && (
               <Nav.Link as={Link} to="/features" className="navigation__link">
                 Features
               </Nav.Link>
             )}
-            {props.user.email === '' && (
+            {!props.authToken && (
               <Nav.Link href="#" className="navigation__link">
                 <button
                   data-testid="button"
