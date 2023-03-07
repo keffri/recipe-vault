@@ -100,7 +100,6 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           type="email"
           value={authInfo.email}
           onChange={(e) => setAuthInfo({ ...authInfo, email: e.target.value })}
-          required
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -109,7 +108,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           onChange={(e) =>
             setAuthInfo({ ...authInfo, password: e.target.value })
           }
-          required
+          autoComplete="off"
         />
         {!loggingIn && (
           <label htmlFor="confirm_password">Confirm password:</label>
@@ -121,7 +120,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
             onChange={(e) =>
               setAuthInfo({ ...authInfo, confirm_password: e.target.value })
             }
-            required
+            autoComplete="off"
           />
         )}
         <input
