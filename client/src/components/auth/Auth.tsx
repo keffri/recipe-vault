@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { PassThrough } from 'stream';
 
 type User = {
   email: string;
