@@ -90,16 +90,16 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
         <CloseIcon />
       </button>
       <form className="auth__form">
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
-          placeholder="email"
           value={authInfo.email}
           onChange={(e) => setAuthInfo({ ...authInfo, email: e.target.value })}
           required
         />
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
-          placeholder="password"
           value={authInfo.password}
           onChange={(e) =>
             setAuthInfo({ ...authInfo, password: e.target.value })
@@ -107,9 +107,11 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           required
         />
         {!loggingIn && (
+          <label htmlFor="confirm_password">Confirm password:</label>
+        )}
+        {!loggingIn && (
           <input
             type="password"
-            placeholder="confirm password"
             value={authInfo.confirm_password}
             onChange={(e) =>
               setAuthInfo({ ...authInfo, confirm_password: e.target.value })
