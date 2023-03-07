@@ -45,7 +45,10 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
       setAuthError('Make sure passwords match.');
       return;
-    } else if (authInfo.password === '' || authInfo.confirm_password === '') {
+    } else if (
+      authInfo.password === '' ||
+      (authInfo.confirm_password === '' && !loggingIn)
+    ) {
       setAuthError('Please fill in the password fields.');
       return;
     }
