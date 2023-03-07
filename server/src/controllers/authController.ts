@@ -27,10 +27,17 @@ exports.signup_post = [
       return;
     }
 
-    const { email, password, confirm_password } = req.body;
+    const { email, password } = req.body;
     const id = uuidv4();
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(password, salt);
+
+    const users = await pool.query('SELECT * FROM users WHERE email = $1', [
+      email,
+    ]);
+    if (users.rows.length) {
+      return res.json({ detail: 'Email is already being used.' });
+    }
     try {
       const signUp = await pool.query(
         `INSERT INTO users (id, email, hashed_password) VALUES($1, $2, $3)`,
