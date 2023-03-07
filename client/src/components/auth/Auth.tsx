@@ -41,7 +41,10 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       setAuthError('Please enter a valid email address.');
       return;
     }
-    if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
+    if (authInfo.password.length < 8 || authInfo.confirm_password.length < 8) {
+      setAuthError('Password must be at least 8 characters.');
+      return;
+    } else if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
       setAuthError('Make sure passwords match.');
       return;
     } else if (
