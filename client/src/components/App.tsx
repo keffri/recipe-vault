@@ -17,6 +17,8 @@ const App: FC = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [user, setUser] = useState<User>({ email: '' });
   const [cookies, setCookie, removeCookie] = useCookies(undefined);
+  const authToken: string = cookies.AuthToken;
+  const userEmail: string = cookies.Email;
 
   const openAuthModal = () => {
     setShowAuthModal(true);
@@ -42,6 +44,7 @@ const App: FC = () => {
           user={user}
           updateUser={updateUser}
           removeCookie={removeCookie}
+          authToken={authToken}
         />
         {showAuthModal && (
           <Auth
@@ -53,14 +56,17 @@ const App: FC = () => {
           />
         )}
         <Routes>
-          {user.email === '' && (
+          {!authToken && (
             <Route
               path="/"
               element={<LandingPage openAuthModal={openAuthModal} />}
             />
           )}
-          {user.email !== '' && (
-            <Route path="/" element={<Home user={user} />} />
+          {authToken && (
+            <Route
+              path="/"
+              element={<Home user={user} userEmail={userEmail} />}
+            />
           )}
           <Route path="/features" element={<Features />} />
           <Route path="/create" element={<Create />} />
