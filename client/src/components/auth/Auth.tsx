@@ -20,7 +20,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     password: '',
     confirm_password: '',
   });
-  const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
   const switchAuth = (status: boolean) => {
     setAuthError('');
