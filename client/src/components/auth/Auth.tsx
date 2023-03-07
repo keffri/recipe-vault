@@ -67,6 +67,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       props.updateUser((props.user.email = data.email));
       props.setCookie('Email', data.email);
       props.setCookie('AuthToken', data.token);
+      props.closeAuthModal();
       window.location.reload();
     }
   };

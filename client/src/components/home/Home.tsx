@@ -7,12 +7,14 @@ type User = {
 
 interface UserProps {
   user: User;
+  userEmail: string;
 }
 
 const Home: FC<UserProps> = (props: UserProps) => {
   return (
     <section className="home">
       <h1 className="home__title">Home</h1>
+      <p>Welcome {props.userEmail}</p>
       <div className="home__buttons">
         <Link to="/create">
           <button className="home__button">Create</button>
