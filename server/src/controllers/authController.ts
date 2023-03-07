@@ -74,7 +74,7 @@ exports.login_post = async (req: Request, res: Response) => {
     if (success) {
       res.json({ email: users.rows[0].email, token });
     } else {
-      res.json({ detail: 'Login failed.' });
+      res.json({ detail: 'Incorrect password.' });
     }
   } catch (error) {
     console.error(error);
