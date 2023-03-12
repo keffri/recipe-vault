@@ -1,14 +1,44 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Navigation, { ModalProps } from '../components/navigation/Navigation';
+import { MemoryRouter } from 'react-router-dom';
+import Navigation from '../components/navigation/Navigation';
 
-function renderNavigation(props: Partial<ModalProps> = {}) {
-  const defaultProps: ModalProps = {
-    openLoginModal() {
+type User = {
+  email: string;
+};
+
+interface NavProps {
+  openAuthModal: () => void;
+  updateUser: (user: User) => void;
+  user: User;
+  removeCookie: (name: string) => void;
+  authToken: any;
+}
+
+// function renderNavigation(props: Partial<NavProps> = {}) {
+//   return render(<Navigation  />);
+// }
+
+function renderNavigation(props: Partial<NavProps> = {}) {
+  const defaultProps: NavProps = {
+    openAuthModal() {
       return;
     },
+    updateUser() {
+      return;
+    },
+    user: {
+      email: 'test@email.com',
+    },
+    removeCookie() {
+      return;
+    },
+    authToken: '123456',
   };
-  return render(<Navigation {...defaultProps} {...props} />);
+
+  return render(<Navigation {...defaultProps} {...props} />, {
+    wrapper: MemoryRouter,
+  });
 }
 
 describe('Navigation rendering functionality', () => {
