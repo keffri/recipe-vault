@@ -85,7 +85,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       {loggingIn ? (
         <h1 className="auth__title">Login</h1>
       ) : (
-        <h1 className="auth__title">Sign Up</h1>
+        <h1 className="auth__title">Sign-Up</h1>
       )}
       <button
         data-testid="button-close"
@@ -134,7 +134,11 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       {loggingIn ? (
         <p className="auth_message">
           Not a member yet? Click{' '}
-          <span className="auth--text" onClick={() => switchAuth(false)}>
+          <span
+            data-testid="form_switch"
+            className="auth--text"
+            onClick={() => switchAuth(false)}
+          >
             here
           </span>{' '}
           to sign up!
