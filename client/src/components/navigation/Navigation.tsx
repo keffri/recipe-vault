@@ -62,7 +62,7 @@ const Navigation: FC<NavProps> = (props: NavProps) => {
             {!props.authToken && (
               <Nav.Link href="#" className="navigation__link">
                 <button
-                  data-testid="button"
+                  data-testid="nav_button"
                   className="navigation__button"
                   onClick={() => props.openAuthModal()}
                 >
