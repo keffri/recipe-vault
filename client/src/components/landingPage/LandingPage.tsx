@@ -32,6 +32,7 @@ const LandingPage: FC<ModalProps> = (props: ModalProps) => {
           Access all of your favorite recipes in one location!
         </p>
         <button
+          data-testid="landingPage_button"
           className="landing__button"
           onClick={() => props.openAuthModal()}
         >
