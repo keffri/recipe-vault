@@ -9,6 +9,7 @@ CREATE TABLE users (
 CREATE TABLE recipes (
     recipe_id VARCHAR(255) PRIMARY KEY,
     user_id VARCHAR (255) FOREIGN KEY REFERENCES users(id),
+    recipe VARCHAR (40),
     course VARCHAR(20),
     cuisine VARCHAR(20),
     diet VARCHAR(20),
