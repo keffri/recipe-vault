@@ -79,7 +79,7 @@ const Create: FC = () => {
         </label>
         <input className="create__input" type="text" placeholder="note..." />
         <label className="create__label" htmlFor="link">
-          Link
+          Link:
         </label>
         <input className="create__input" type="text" placeholder="link..." />
       </form>
