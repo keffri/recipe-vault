@@ -11148,6 +11148,20 @@ table {
 .create__title {
   font-size: 3rem;
   text-decoration: underline;
+  margin: 1rem 0;
+}
+.create__form {
+  display: flex;
+  flex-direction: column;
+}
+.create__label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  text-decoration: underline;
+}
+.create__input {
+  margin-bottom: 1rem;
+  width: 20rem;
 }
 
 .vault {
