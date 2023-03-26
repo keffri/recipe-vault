@@ -22,14 +22,10 @@ const Create: FC = () => {
       <h1 className="create__title">Create</h1>
 
       <form className="create__form">
-        <label className="create__label" htmlFor="name">
-          Name:
+        <label className="create__label" htmlFor="recipe_name">
+          Recipe name:
         </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="recipe name..."
-        />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="cuisine">
           Cuisine:
         </label>
