@@ -29,15 +29,15 @@ const Create: FC = () => {
         <label className="create__label" htmlFor="cuisine">
           Cuisine:
         </label>
-        <input className="create__input" type="text" placeholder="cuisine..." />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="course">
           Course:
         </label>
-        <input className="create__input" type="text" placeholder="course..." />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="tags">
           Tags:
         </label>
-        <input className="create__input" type="text" placeholder="tag..." />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="prep_time">
           Prep time:
         </label>
@@ -57,27 +57,19 @@ const Create: FC = () => {
         <label className="create__label" htmlFor="ingredients">
           Ingredients:
         </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="ingredient..."
-        />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="instructions">
           Instructions:
         </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="instruction..."
-        />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="notes">
           Notes:
         </label>
-        <input className="create__input" type="text" placeholder="note..." />
+        <input className="create__input" type="text" />
         <label className="create__label" htmlFor="link">
           Link:
         </label>
-        <input className="create__input" type="text" placeholder="link..." />
+        <input className="create__input" type="text" />
       </form>
     </section>
   );
