@@ -29,31 +29,63 @@ const Create: FC = () => {
         <label className="create__label" htmlFor="cuisine">
           Cuisine:
         </label>
-        <input className="create__input" type="text" />
+        <input
+          className="create__input"
+          type="text"
+          placeholder="Italian, Japanese, Indian..."
+        />
         <label className="create__label" htmlFor="course">
           Course:
         </label>
-        <input className="create__input" type="text" />
+        <input
+          className="create__input"
+          type="text"
+          placeholder="Breakfast, lunch, dinner..."
+        />
         <label className="create__label" htmlFor="tags">
           Tags:
         </label>
-        <input className="create__input" type="text" />
+        <input
+          className="create__input"
+          type="text"
+          placeholder="Keto, dairy free, vegan..."
+        />
         <label className="create__label" htmlFor="prep_time">
-          Prep time:
+          Prep time (mins):
         </label>
-        <input className="create__input" type="number" />
+        <input
+          className="create__input"
+          type="number"
+          min={0}
+          defaultValue={0}
+        />
         <label className="create__label" htmlFor="cook_time">
-          Cook time:
+          Cook time (mins):
         </label>
-        <input className="create__input" type="number" />
+        <input
+          className="create__input"
+          type="number"
+          min={0}
+          defaultValue={0}
+        />
         <label className="create__label" htmlFor="total_time">
-          Total time:
+          Total time (mins):
         </label>
-        <input className="create__input" type="number" />
+        <input
+          className="create__input"
+          type="number"
+          min={0}
+          defaultValue={0}
+        />
         <label className="create__label" htmlFor="serves">
           Serves:
         </label>
-        <input className="create__input" type="number" />
+        <input
+          className="create__input"
+          type="number"
+          min={1}
+          defaultValue={1}
+        />
         <label className="create__label" htmlFor="ingredients">
           Ingredients:
         </label>
@@ -69,7 +101,11 @@ const Create: FC = () => {
         <label className="create__label" htmlFor="link">
           Link:
         </label>
-        <input className="create__input" type="text" />
+        <input
+          className="create__input"
+          type="text"
+          placeholder="www.recipes.com/recipe"
+        />
       </form>
     </section>
   );
