@@ -106,6 +106,11 @@ const Create: FC = () => {
           type="text"
           placeholder="www.recipes.com/recipe"
         />
+        <input
+          type="submit"
+          className="create__submit"
+          value={'Create Recipe'}
+        />
       </form>
     </section>
   );
