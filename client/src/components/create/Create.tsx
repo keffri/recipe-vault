@@ -31,7 +31,7 @@ const Create: FC = () => {
           placeholder="recipe name..."
         />
         <label className="create__label" htmlFor="cuisine">
-          Cuisine
+          Cuisine:
         </label>
         <input className="create__input" type="text" placeholder="cuisine..." />
         <label className="create__label" htmlFor="course">
