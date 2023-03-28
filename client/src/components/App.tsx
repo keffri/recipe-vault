@@ -69,8 +69,8 @@ const App: FC = () => {
             />
           )}
           <Route path="/features" element={<Features />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/vault" element={<Vault />} />
+          <Route path="/create" element={<Create cookies={cookies} />} />
+          <Route path="/vault" element={<Vault cookies={cookies} />} />
         </Routes>
       </div>
     </BrowserRouter>
