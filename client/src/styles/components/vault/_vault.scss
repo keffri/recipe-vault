@@ -11,4 +11,16 @@
     font-size: 3rem;
     text-decoration: underline;
   }
+
+  &__fail {
+    height: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+
+    &--center {
+      margin-bottom: 5rem;
+    }
+  }
 }

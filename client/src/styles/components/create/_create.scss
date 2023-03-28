@@ -28,4 +28,16 @@
     margin-bottom: 1rem;
     width: 20rem;
   }
+
+  &__fail {
+    height: 100%;
+    display: flex;
+    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+
+    &--center {
+      margin-bottom: 5rem;
+    }
+  }
 }
