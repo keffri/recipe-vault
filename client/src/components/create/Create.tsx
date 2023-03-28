@@ -25,7 +25,9 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     <section className="create">
       {!props.cookies.AuthToken && (
         <div className="create__fail">
-          <h2>Please log in if you wish to create a recipe.</h2>
+          <h2 className="create__fail--center">
+            Please log in if you wish to create a recipe.
+          </h2>
         </div>
       )}
       {props.cookies.AuthToken && (

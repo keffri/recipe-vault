@@ -9,7 +9,9 @@ const Vault: FC<VaultProps> = (props: VaultProps) => {
     <section className="vault">
       {!props.cookies.AuthToken && (
         <div className="vault__fail">
-          <h2>Please log in if you wish to view your recipes.</h2>
+          <h2 className="vault__fail--center">
+            Please log in if you wish to view your recipes.
+          </h2>
         </div>
       )}
 
