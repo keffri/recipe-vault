@@ -16,102 +16,122 @@ type Recipe = {
   link: string;
 };
 
-const Create: FC = () => {
+interface CreateProps {
+  cookies: { [x: string]: any };
+}
+
+const Create: FC<CreateProps> = (props: CreateProps) => {
   return (
     <section className="create">
-      <h1 className="create__title">Create</h1>
+      {!props.cookies.AuthToken && (
+        <div className="create__fail">
+          <h2>Please log in if you wish to create a recipe.</h2>
+        </div>
+      )}
+      {props.cookies.AuthToken && (
+        <div className="create__pass">
+          <h1
+            className="create__title"
+            onClick={() => {
+              console.log(props.cookies);
+            }}
+          >
+            Create
+          </h1>
 
-      <form className="create__form">
-        <label className="create__label" htmlFor="recipe_name">
-          Recipe name:
-        </label>
-        <input className="create__input" type="text" />
-        <label className="create__label" htmlFor="cuisine">
-          Cuisine:
-        </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="Italian, Japanese, Indian..."
-        />
-        <label className="create__label" htmlFor="course">
-          Course:
-        </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="Breakfast, lunch, dinner..."
-        />
-        <label className="create__label" htmlFor="tags">
-          Tags:
-        </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="Keto, dairy free, vegan..."
-        />
-        <label className="create__label" htmlFor="prep_time">
-          Prep time (mins):
-        </label>
-        <input
-          className="create__input"
-          type="number"
-          min={0}
-          defaultValue={0}
-        />
-        <label className="create__label" htmlFor="cook_time">
-          Cook time (mins):
-        </label>
-        <input
-          className="create__input"
-          type="number"
-          min={0}
-          defaultValue={0}
-        />
-        <label className="create__label" htmlFor="total_time">
-          Total time (mins):
-        </label>
-        <input
-          className="create__input"
-          type="number"
-          min={0}
-          defaultValue={0}
-        />
-        <label className="create__label" htmlFor="serves">
-          Serves:
-        </label>
-        <input
-          className="create__input"
-          type="number"
-          min={1}
-          defaultValue={1}
-        />
-        <label className="create__label" htmlFor="ingredients">
-          Ingredients:
-        </label>
-        <input className="create__input" type="text" />
-        <label className="create__label" htmlFor="instructions">
-          Instructions:
-        </label>
-        <input className="create__input" type="text" />
-        <label className="create__label" htmlFor="notes">
-          Notes:
-        </label>
-        <input className="create__input" type="text" />
-        <label className="create__label" htmlFor="link">
-          Link:
-        </label>
-        <input
-          className="create__input"
-          type="text"
-          placeholder="www.recipes.com/recipe"
-        />
-        <input
-          type="submit"
-          className="create__submit"
-          value={'Create Recipe'}
-        />
-      </form>
+          <form className="create__form">
+            <label className="create__label" htmlFor="recipe_name">
+              Recipe name:
+            </label>
+            <input className="create__input" type="text" />
+            <label className="create__label" htmlFor="cuisine">
+              Cuisine:
+            </label>
+            <input
+              className="create__input"
+              type="text"
+              placeholder="Italian, Japanese, Indian..."
+            />
+            <label className="create__label" htmlFor="course">
+              Course:
+            </label>
+            <input
+              className="create__input"
+              type="text"
+              placeholder="Breakfast, lunch, dinner..."
+            />
+            <label className="create__label" htmlFor="tags">
+              Tags:
+            </label>
+            <input
+              className="create__input"
+              type="text"
+              placeholder="Keto, dairy free, vegan..."
+            />
+            <label className="create__label" htmlFor="prep_time">
+              Prep time (mins):
+            </label>
+            <input
+              className="create__input"
+              type="number"
+              min={0}
+              defaultValue={0}
+            />
+            <label className="create__label" htmlFor="cook_time">
+              Cook time (mins):
+            </label>
+            <input
+              className="create__input"
+              type="number"
+              min={0}
+              defaultValue={0}
+            />
+            <label className="create__label" htmlFor="total_time">
+              Total time (mins):
+            </label>
+            <input
+              className="create__input"
+              type="number"
+              min={0}
+              defaultValue={0}
+            />
+            <label className="create__label" htmlFor="serves">
+              Serves:
+            </label>
+            <input
+              className="create__input"
+              type="number"
+              min={1}
+              defaultValue={1}
+            />
+            <label className="create__label" htmlFor="ingredients">
+              Ingredients:
+            </label>
+            <input className="create__input" type="text" />
+            <label className="create__label" htmlFor="instructions">
+              Instructions:
+            </label>
+            <input className="create__input" type="text" />
+            <label className="create__label" htmlFor="notes">
+              Notes:
+            </label>
+            <input className="create__input" type="text" />
+            <label className="create__label" htmlFor="link">
+              Link:
+            </label>
+            <input
+              className="create__input"
+              type="text"
+              placeholder="www.recipes.com/recipe"
+            />
+            <input
+              type="submit"
+              className="create__submit"
+              value={'Create Recipe'}
+            />
+          </form>
+        </div>
+      )}
     </section>
   );
 };
