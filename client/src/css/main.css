@@ -11163,6 +11163,16 @@ table {
   margin-bottom: 1rem;
   width: 20rem;
 }
+.create__fail {
+  height: 100%;
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.create__fail--center {
+  margin-bottom: 5rem;
+}
 
 .vault {
   width: 100%;
@@ -11176,6 +11186,16 @@ table {
 .vault__title {
   font-size: 3rem;
   text-decoration: underline;
+}
+.vault__fail {
+  height: 100%;
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+}
+.vault__fail--center {
+  margin-bottom: 5rem;
 }
 
 *,
