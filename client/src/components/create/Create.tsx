@@ -43,11 +43,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
 
           <form className="create__form">
             <label className="create__label" htmlFor="recipe_name">
-              Recipe name:
+              <p className="create--high">Recipe name:</p>
             </label>
             <input className="create__input" type="text" />
             <label className="create__label" htmlFor="cuisine">
-              Cuisine:
+              <p className="create--high">Cuisine:</p>
             </label>
             <input
               className="create__input"
@@ -55,7 +55,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               placeholder="Italian, Japanese, Indian..."
             />
             <label className="create__label" htmlFor="course">
-              Course:
+              <p className="create--high">Course:</p>
             </label>
             <input
               className="create__input"
@@ -63,7 +63,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               placeholder="Breakfast, lunch, dinner..."
             />
             <label className="create__label" htmlFor="tags">
-              Tags:
+              <p className="create--high">Tags:</p>
+              <span className="create--low">
+                (separate each tag with a comma)
+              </span>
             </label>
             <input
               className="create__input"
@@ -71,7 +74,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               placeholder="Keto, dairy free, vegan..."
             />
             <label className="create__label" htmlFor="prep_time">
-              Prep time (mins):
+              <p className="create--high">Prep time:</p>
+              <span className="create--low">(mins)</span>
             </label>
             <input
               className="create__input"
@@ -80,7 +84,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               defaultValue={0}
             />
             <label className="create__label" htmlFor="cook_time">
-              Cook time (mins):
+              <p className="create--high">Cook time:</p>
+              <span className="create--low">(mins)</span>
             </label>
             <input
               className="create__input"
@@ -89,7 +94,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               defaultValue={0}
             />
             <label className="create__label" htmlFor="total_time">
-              Total time (mins):
+              <p className="create--high">Total time:</p>
+              <span className="create--low">(mins)</span>
             </label>
             <input
               className="create__input"
@@ -98,7 +104,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               defaultValue={0}
             />
             <label className="create__label" htmlFor="serves">
-              Serves:
+              <p className="create--high">Serves:</p>
             </label>
             <input
               className="create__input"
@@ -107,19 +113,22 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               defaultValue={1}
             />
             <label className="create__label" htmlFor="ingredients">
-              Ingredients:
+              <p className="create--high">Ingredients:</p>
+              <span className="create--low">
+                (separate each tag with a comma)
+              </span>
             </label>
             <input className="create__input" type="text" />
             <label className="create__label" htmlFor="instructions">
-              Instructions:
+              <p className="create--high">Instructions:</p>
             </label>
             <input className="create__input" type="text" />
             <label className="create__label" htmlFor="notes">
-              Notes:
+              <p className="create--high">Notes:</p>
             </label>
             <input className="create__input" type="text" />
             <label className="create__label" htmlFor="link">
-              Link:
+              <p className="create--high">Link:</p>
             </label>
             <input
               className="create__input"
