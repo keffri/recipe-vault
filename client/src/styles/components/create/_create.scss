@@ -1,6 +1,7 @@
 .create {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(100% - 60px);
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +11,7 @@
   &__title {
     font-size: 3rem;
     text-decoration: underline;
-    margin: 1rem 0;
+    margin-bottom: 2rem;
     text-align: center;
   }
 
@@ -20,10 +21,9 @@
   }
 
   &__label {
-    font-weight: bold;
     margin-bottom: 0.25rem;
-    text-decoration: underline;
     display: flex;
+    flex-direction: column;
   }
 
   &__input {
@@ -41,5 +41,16 @@
     &--center {
       margin-bottom: 5rem;
     }
+  }
+
+  &--high {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  &--low {
+    text-decoration: none;
+    font-weight: normal;
+    margin: 5px 0;
   }
 }
