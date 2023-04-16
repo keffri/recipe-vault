@@ -21,6 +21,10 @@ interface CreateProps {
 }
 
 const Create: FC<CreateProps> = (props: CreateProps) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <section className="create">
       {!props.cookies.AuthToken && (
@@ -138,6 +142,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               type="submit"
               className="create__submit"
+              onClick={(e) => handleSubmit(e)}
               value={'Create Recipe'}
             />
           </form>
