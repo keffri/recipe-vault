@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 type Recipe = {
   name: string;
@@ -21,8 +21,33 @@ interface CreateProps {
 }
 
 const Create: FC<CreateProps> = (props: CreateProps) => {
+  const [recipeInfo, setRecipeInfo] = useState({
+    name: '',
+    cuisine: '',
+    course: '',
+    diet: '',
+    tags: [],
+    prep_time: 0,
+    cook_time: 0,
+    total_tile: 0,
+    serves: 0,
+    ingredients: [],
+    instructions: [],
+    notes: [],
+    link: '',
+  });
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
+
+    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/create`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...recipeInfo }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
   };
 
   return (
