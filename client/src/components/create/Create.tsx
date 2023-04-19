@@ -96,6 +96,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="course">
               <p className="create--high">Course:</p>
+
+              <span className="create--low">
+                (separate each course with a comma)
+              </span>
             </label>
             <input
               className="create__input"
