@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 type Recipe = {
   name: string;
   cuisine: string;
-  course: string;
+  course: string[];
   tags: string[];
   prep_time: number;
   cook_time: number;
@@ -28,13 +28,14 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     tags: [],
     prep_time: 0,
     cook_time: 0,
-    total_tile: 0,
+    total_time: 0,
     serves: 0,
     ingredients: [],
     instructions: [],
     notes: [],
     link: '',
-  });
+  } as Recipe);
+  const [course, setCourse] = useState('');
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -104,6 +105,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="Breakfast, lunch, dinner..."
+              value={course}
+              onChange={(e) => {
+                setCourse(e.target.value);
+              }}
             />
             <label className="create__label" htmlFor="tags">
               <p className="create--high">Tags:</p>
