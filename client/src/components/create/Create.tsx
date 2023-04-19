@@ -4,7 +4,6 @@ type Recipe = {
   name: string;
   cuisine: string;
   course: string;
-  diet: string;
   tags: string[];
   prep_time: number;
   cook_time: number;
