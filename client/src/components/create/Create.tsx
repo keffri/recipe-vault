@@ -24,7 +24,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
   const [recipeInfo, setRecipeInfo] = useState({
     name: '',
     cuisine: '',
-    course: '',
+    course: [],
     diet: '',
     tags: [],
     prep_time: 0,
