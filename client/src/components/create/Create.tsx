@@ -74,7 +74,14 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="recipe_name">
               <p className="create--high">Recipe name:</p>
             </label>
-            <input className="create__input" type="text" />
+            <input
+              className="create__input"
+              type="text"
+              value={recipeInfo.name}
+              onChange={(e) =>
+                setRecipeInfo({ ...recipeInfo, name: e.target.value })
+              }
+            />
             <label className="create__label" htmlFor="cuisine">
               <p className="create--high">Cuisine:</p>
             </label>
@@ -82,6 +89,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="Italian, Japanese, Indian..."
+              value={recipeInfo.cuisine}
+              onChange={(e) =>
+                setRecipeInfo({ ...recipeInfo, cuisine: e.target.value })
+              }
             />
             <label className="create__label" htmlFor="course">
               <p className="create--high">Course:</p>
