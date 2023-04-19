@@ -155,7 +155,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="ingredients">
               <p className="create--high">Ingredients:</p>
               <span className="create--low">
-                (separate each tag with a comma)
+                (separate each ingredient with a comma)
               </span>
             </label>
             <input className="create__input" type="text" />
