@@ -36,6 +36,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     link: '',
   } as Recipe);
   const [course, setCourse] = useState('');
+  let courseText = '';
+
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -105,9 +107,15 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="Breakfast, lunch, dinner..."
+              name="course"
               value={course}
               onChange={(e) => {
-                setCourse(e.target.value);
+                courseText = e.target.value;
+                setCourse(courseText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  course: e.target.value.split(',').map((c) => c.trim()),
+                });
               }}
             />
             <label className="create__label" htmlFor="tags">
