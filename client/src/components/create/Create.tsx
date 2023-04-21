@@ -24,7 +24,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     name: '',
     cuisine: '',
     course: [],
-    diet: '',
     tags: [],
     prep_time: 0,
     cook_time: 0,
@@ -36,7 +35,9 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     link: '',
   } as Recipe);
   const [course, setCourse] = useState('');
+  const [tag, setTag] = useState('');
   let courseText = '';
+  let tagText = '';
 
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -128,6 +129,16 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="Keto, dairy free, vegan..."
+              name="tag"
+              value={tag}
+              onChange={(e) => {
+                tagText = e.target.value;
+                setTag(tagText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  tags: e.target.value.split(',').map((c) => c.trim()),
+                });
+              }}
             />
             <label className="create__label" htmlFor="prep_time">
               <p className="create--high">Prep time:</p>
