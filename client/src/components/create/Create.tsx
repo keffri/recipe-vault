@@ -149,6 +149,13 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               min={0}
               defaultValue={0}
+              value={recipeInfo.prep_time}
+              onChange={(e) => {
+                setRecipeInfo({
+                  ...recipeInfo,
+                  prep_time: Number(e.target.value),
+                });
+              }}
             />
             <label className="create__label" htmlFor="cook_time">
               <p className="create--high">Cook time:</p>
