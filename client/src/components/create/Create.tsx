@@ -28,7 +28,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     prep_time: 0,
     cook_time: 0,
     total_time: 0,
-    serves: 0,
+    serves: 1,
     ingredients: [],
     instructions: [],
     notes: [],
