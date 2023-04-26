@@ -14,6 +14,16 @@
   }
 }
 
+@media only screen and (max-width: 540px) {
+  .create__input {
+    width: 25rem;
+  }
+
+  .create__textarea {
+    width: 25rem;
+  }
+}
+
 @media only screen and (max-width: 515px) {
   .login {
     min-height: 375px;
@@ -31,5 +41,15 @@
     text-align: center;
     width: 20rem;
     word-wrap: break-word;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .create__input {
+    width: 20rem;
+  }
+
+  .create__textarea {
+    width: 20rem;
   }
 }
