@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 
 type Recipe = {
   name: string;
-  cuisine: string;
+  cuisine: string[];
   course: string[];
   tags: string[];
   prep_time: number;
@@ -22,7 +22,7 @@ interface CreateProps {
 const Create: FC<CreateProps> = (props: CreateProps) => {
   const [recipeInfo, setRecipeInfo] = useState({
     name: '',
-    cuisine: '',
+    cuisine: [],
     course: [],
     tags: [],
     prep_time: 0,
@@ -35,11 +35,13 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     link: '',
   } as Recipe);
 
+  const [cuisine, setCuisine] = useState('');
   const [course, setCourse] = useState('');
   const [tag, setTag] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [instructions, setInstructions] = useState('');
   const [notes, setNotes] = useState('');
+  let cuisineText = '';
   let courseText = '';
   let tagText = '';
   let ingredientsText = '';
@@ -95,16 +97,24 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="cuisine">
               <p className="create--high">Cuisine:</p>
+              <span className="create--low">
+                (separate each cuisine with a comma)
+              </span>
             </label>
             <input
               className="create__input"
               type="text"
               placeholder="Italian, Japanese, Indian..."
               name="cuisine"
-              value={recipeInfo.cuisine}
-              onChange={(e) =>
-                setRecipeInfo({ ...recipeInfo, cuisine: e.target.value })
-              }
+              value={cuisine}
+              onChange={(e) => {
+                cuisineText = e.target.value;
+                setCuisine(cuisineText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  cuisine: e.target.value.split(',').map((c) => c.trim()),
+                });
+              }}
             />
             <label className="create__label" htmlFor="course">
               <p className="create--high">Course:</p>
