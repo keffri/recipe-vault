@@ -28,12 +28,14 @@
 
   &__input {
     margin-bottom: 1rem;
-    width: 20rem;
+    width: 30rem;
   }
 
   &__textarea {
     margin-bottom: 1rem;
-    width: 20rem;
+    width: 30rem;
+    height: 5rem;
+    resize: none;
   }
 
   &__fail {
