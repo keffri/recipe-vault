@@ -11165,6 +11165,10 @@ table {
   margin-bottom: 1rem;
   width: 20rem;
 }
+.create__textarea {
+  margin-bottom: 1rem;
+  width: 20rem;
+}
 .create__fail {
   height: 100%;
   display: flex;
