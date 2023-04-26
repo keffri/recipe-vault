@@ -221,9 +221,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
                 (separate each ingredient with a comma)
               </span>
             </label>
-            <input
+            <textarea
               className="create__input"
-              type="text"
               name="ingredients"
               value={ingredients}
               onChange={(e) => {
