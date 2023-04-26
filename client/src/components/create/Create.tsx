@@ -237,11 +237,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
             </label>
-            <input className="create__input" type="text" />
+            <textarea className="create__input" />
             <label className="create__label" htmlFor="notes">
               <p className="create--high">Notes:</p>
             </label>
-            <input className="create__input" type="text" />
+            <textarea className="create__input" />
             <label className="create__label" htmlFor="link">
               <p className="create--high">Link:</p>
             </label>
