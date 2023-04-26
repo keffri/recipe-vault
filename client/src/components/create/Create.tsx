@@ -245,6 +245,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="www.recipes.com/recipe"
+              value={recipeInfo.link}
+              onChange={(e) =>
+                setRecipeInfo({ ...recipeInfo, link: e.target.value })
+              }
             />
             <input
               type="submit"
