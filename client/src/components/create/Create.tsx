@@ -153,7 +153,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               name="prep_time"
               min={0}
-              defaultValue={0}
               value={recipeInfo.prep_time}
               onChange={(e) => {
                 setRecipeInfo({
@@ -171,7 +170,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               name="cook_time"
               min={0}
-              defaultValue={0}
               value={recipeInfo.cook_time}
               onChange={(e) => {
                 setRecipeInfo({
@@ -189,7 +187,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               name="total_time"
               min={0}
-              defaultValue={0}
               value={recipeInfo.total_time}
               onChange={(e) => {
                 setRecipeInfo({
@@ -206,7 +203,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               name="serves"
               min={1}
-              defaultValue={1}
               value={recipeInfo.serves}
               onChange={(e) => {
                 setRecipeInfo({
