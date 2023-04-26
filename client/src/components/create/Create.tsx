@@ -236,6 +236,9 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
+              <span className="create--low">
+                (separate each instruction with a comma)
+              </span>
             </label>
             <textarea
               className="create__textarea"
@@ -252,6 +255,9 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="notes">
               <p className="create--high">Notes:</p>
+              <span className="create--low">
+                (separate each note with a comma)
+              </span>
             </label>
             <textarea
               className="create__textarea"
