@@ -38,9 +38,13 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
   const [course, setCourse] = useState('');
   const [tag, setTag] = useState('');
   const [ingredients, setIngredients] = useState('');
+  const [instructions, setInstructions] = useState('');
+  const [notes, setNotes] = useState('');
   let courseText = '';
   let tagText = '';
   let ingredientsText = '';
+  let instructionsText = '';
+  let notesText = '';
 
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -233,11 +237,35 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
             </label>
-            <textarea className="create__textarea" />
+            <textarea
+              className="create__textarea"
+              name="instructions"
+              value={instructions}
+              onChange={(e) => {
+                instructionsText = e.target.value;
+                setInstructions(instructionsText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  instructions: e.target.value.split(',').map((c) => c.trim()),
+                });
+              }}
+            />
             <label className="create__label" htmlFor="notes">
               <p className="create--high">Notes:</p>
             </label>
-            <textarea className="create__textarea" />
+            <textarea
+              className="create__textarea"
+              name="notes"
+              value={notes}
+              onChange={(e) => {
+                notesText = e.target.value;
+                setNotes(notesText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  notes: e.target.value.split(',').map((c) => c.trim()),
+                });
+              }}
+            />
             <label className="create__label" htmlFor="link">
               <p className="create--high">Link:</p>
             </label>
