@@ -83,6 +83,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               className="create__input"
               type="text"
+              name="name"
               value={recipeInfo.name}
               onChange={(e) =>
                 setRecipeInfo({ ...recipeInfo, name: e.target.value })
@@ -95,6 +96,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="Italian, Japanese, Indian..."
+              name="cuisine"
               value={recipeInfo.cuisine}
               onChange={(e) =>
                 setRecipeInfo({ ...recipeInfo, cuisine: e.target.value })
@@ -102,7 +104,6 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="course">
               <p className="create--high">Course:</p>
-
               <span className="create--low">
                 (separate each course with a comma)
               </span>
@@ -150,6 +151,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               className="create__input"
               type="number"
+              name="prep_time"
               min={0}
               defaultValue={0}
               value={recipeInfo.prep_time}
@@ -167,6 +169,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               className="create__input"
               type="number"
+              name="cook_time"
               min={0}
               defaultValue={0}
               value={recipeInfo.cook_time}
@@ -184,6 +187,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               className="create__input"
               type="number"
+              name="total_time"
               min={0}
               defaultValue={0}
               value={recipeInfo.total_time}
@@ -200,6 +204,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <input
               className="create__input"
               type="number"
+              name="serves"
               min={1}
               defaultValue={1}
               value={recipeInfo.serves}
@@ -245,6 +250,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               className="create__input"
               type="text"
               placeholder="www.recipes.com/recipe"
+              name="link"
               value={recipeInfo.link}
               onChange={(e) =>
                 setRecipeInfo({ ...recipeInfo, link: e.target.value })
