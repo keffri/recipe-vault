@@ -34,10 +34,13 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     notes: [],
     link: '',
   } as Recipe);
+
   const [course, setCourse] = useState('');
   const [tag, setTag] = useState('');
+  const [ingredients, setIngredients] = useState('');
   let courseText = '';
   let tagText = '';
+  let ingredientsText = '';
 
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -213,7 +216,20 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
                 (separate each ingredient with a comma)
               </span>
             </label>
-            <input className="create__input" type="text" />
+            <input
+              className="create__input"
+              type="text"
+              name="ingredients"
+              value={ingredients}
+              onChange={(e) => {
+                ingredientsText = e.target.value;
+                setIngredients(ingredientsText);
+                setRecipeInfo({
+                  ...recipeInfo,
+                  ingredients: e.target.value.split(',').map((c) => c.trim()),
+                });
+              }}
+            />
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
             </label>
