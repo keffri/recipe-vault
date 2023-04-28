@@ -233,6 +233,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             </label>
             <textarea
               className="create__textarea"
+              placeholder="Ingredient one, Ingredient two, Ingredient three..."
               name="ingredients"
               value={ingredients}
               onChange={(e) => {
@@ -247,11 +248,12 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
               <span className="create--low">
-                (separate each instruction with a comma)
+                (wrap separate instructions in brackets)
               </span>
             </label>
             <textarea
               className="create__textarea"
+              placeholder="[Instruction one][Instruction two][Instruction three]"
               name="instructions"
               value={instructions}
               onChange={(e) => {
