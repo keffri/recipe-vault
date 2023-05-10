@@ -48,6 +48,16 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
   let instructionsText = '';
   let notesText = '';
 
+  const bracketText = (string: string) => {
+    const regex = /\[(.*?)\]/g;
+    const matches = string.match(regex);
+    if (matches !== null) {
+      return matches.map((match) => match.slice(1, -1));
+    } else {
+      return ['match fail'];
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -253,7 +263,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             </label>
             <textarea
               className="create__textarea"
-              placeholder="[Instruction one][Instruction two][Instruction three]"
+              placeholder="[Instruction one][Instruction two][Instruction three]..."
               name="instructions"
               value={instructions}
               onChange={(e) => {
@@ -261,18 +271,19 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
                 setInstructions(instructionsText);
                 setRecipeInfo({
                   ...recipeInfo,
-                  instructions: e.target.value.split(',').map((c) => c.trim()),
+                  instructions: bracketText(instructionsText),
                 });
               }}
             />
             <label className="create__label" htmlFor="notes">
               <p className="create--high">Notes:</p>
               <span className="create--low">
-                (separate each note with a comma)
+                (wrap separate notes in brackets)
               </span>
             </label>
             <textarea
               className="create__textarea"
+              placeholder="[Note one][Note two][Note three]..."
               name="notes"
               value={notes}
               onChange={(e) => {
@@ -280,7 +291,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
                 setNotes(notesText);
                 setRecipeInfo({
                   ...recipeInfo,
-                  notes: e.target.value.split(',').map((c) => c.trim()),
+                  notes: bracketText(notesText),
                 });
               }}
             />
