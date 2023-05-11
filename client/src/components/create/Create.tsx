@@ -179,9 +179,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               min={0}
               value={recipeInfo.prep_time}
               onChange={(e) => {
+                const prepTime = Number(e.target.value);
                 setRecipeInfo({
                   ...recipeInfo,
-                  prep_time: Number(e.target.value),
+                  prep_time: prepTime,
+                  total_time: recipeInfo.cook_time + prepTime,
                 });
               }}
             />
@@ -196,9 +198,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               min={0}
               value={recipeInfo.cook_time}
               onChange={(e) => {
+                const cookTime = Number(e.target.value);
                 setRecipeInfo({
                   ...recipeInfo,
                   cook_time: Number(e.target.value),
+                  total_time: recipeInfo.prep_time + cookTime,
                 });
               }}
             />
@@ -211,13 +215,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               type="number"
               name="total_time"
               min={0}
-              value={recipeInfo.total_time}
-              onChange={(e) => {
-                setRecipeInfo({
-                  ...recipeInfo,
-                  total_time: Number(e.target.value),
-                });
-              }}
+              value={recipeInfo.prep_time + recipeInfo.cook_time}
             />
             <label className="create__label" htmlFor="serves">
               <p className="create--high">Serves:</p>
