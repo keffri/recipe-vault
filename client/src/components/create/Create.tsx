@@ -216,6 +216,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               name="total_time"
               min={0}
               value={recipeInfo.prep_time + recipeInfo.cook_time}
+              readOnly={true}
             />
             <label className="create__label" htmlFor="serves">
               <p className="create--high">Serves:</p>
