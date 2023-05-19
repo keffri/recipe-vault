@@ -15,6 +15,13 @@ type Recipe = {
   link: string;
 };
 
+type ValidationError = {
+  body: string;
+  msg: string;
+  param: string;
+  value: string;
+};
+
 interface CreateProps {
   cookies: { [x: string]: any };
 }
@@ -34,6 +41,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     notes: [],
     link: '',
   } as Recipe);
+
+  const [nameError, setNameError] = useState<ValidationError[]>([]);
 
   const [cuisine, setCuisine] = useState('');
   const [course, setCourse] = useState('');
@@ -69,7 +78,16 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
 
     const data = await response.json();
 
-    console.log(data);
+    if (data.errors) {
+      const recipeNameError = data.errors.filter(
+        (error: ValidationError) => error.param === 'name'
+      );
+      setNameError(recipeNameError);
+
+      console.log(nameError);
+    } else {
+      console.log('success');
+    }
   };
 
   return (
@@ -96,6 +114,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             <label className="create__label" htmlFor="recipe_name">
               <p className="create--high">Recipe name:</p>
             </label>
+            {nameError.length > 0 && nameError[0].msg && (
+              <p style={{ color: 'red' }}>{nameError[0].msg}</p>
+            )}
+
             <input
               className="create__input"
               type="text"
