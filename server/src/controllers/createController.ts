@@ -41,9 +41,11 @@ exports.create_post = [
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.json({ errors: errors.array() });
+      res.status(400).json({ errors: errors.array() });
       console.log(errors);
       return;
     }
+
+    res.status(200).json({ message: 'Post successful.' });
   },
 ];
