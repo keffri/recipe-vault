@@ -43,6 +43,15 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
   } as Recipe);
 
   const [nameError, setNameError] = useState<ValidationError[]>([]);
+  const [cuisineError, setCuisineError] = useState<ValidationError[]>([]);
+  const [courseError, setCourseError] = useState<ValidationError[]>([]);
+  const [tagError, setTagError] = useState<ValidationError[]>([]);
+  const [ingredientsError, setIngredientsError] = useState<ValidationError[]>(
+    []
+  );
+  const [instructionsError, setInstructionsError] = useState<ValidationError[]>(
+    []
+  );
 
   const [cuisine, setCuisine] = useState('');
   const [course, setCourse] = useState('');
@@ -67,6 +76,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     }
   };
 
+  const filterErrors = (errors: ValidationError[], paramName: string) => {
+    return errors.filter((error: ValidationError) => error.param === paramName);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -79,12 +92,12 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
     const data = await response.json();
 
     if (data.errors) {
-      const recipeNameError = data.errors.filter(
-        (error: ValidationError) => error.param === 'name'
-      );
-      setNameError(recipeNameError);
-
-      console.log(nameError);
+      setNameError(filterErrors(data.errors, 'name'));
+      setCuisineError(filterErrors(data.errors, 'cuisine'));
+      setCourseError(filterErrors(data.errors, 'course'));
+      setTagError(filterErrors(data.errors, 'tag'));
+      setIngredientsError(filterErrors(data.errors, 'ingredients'));
+      setInstructionsError(filterErrors(data.errors, 'instructions'));
     } else {
       console.log('success');
     }
@@ -115,9 +128,10 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <p className="create--high">Recipe name:</p>
             </label>
             {nameError.length > 0 && nameError[0].msg && (
-              <p style={{ color: 'red' }}>{nameError[0].msg}</p>
+              <p style={{ color: 'red', margin: '5px 0' }}>
+                {nameError[0].msg}
+              </p>
             )}
-
             <input
               className="create__input"
               type="text"
@@ -129,10 +143,16 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="cuisine">
               <p className="create--high">Cuisine:</p>
+              {cuisineError.length > 0 && cuisineError[0].msg && (
+                <p style={{ color: 'red', marginTop: '8px' }}>
+                  {cuisineError[0].msg}
+                </p>
+              )}
               <span className="create--low">
                 (separate each cuisine with a comma)
               </span>
             </label>
+
             <input
               className="create__input"
               type="text"
@@ -150,6 +170,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="course">
               <p className="create--high">Course:</p>
+              {courseError.length > 0 && courseError[0].msg && (
+                <p style={{ color: 'red', marginTop: '8px' }}>
+                  {courseError[0].msg}
+                </p>
+              )}
               <span className="create--low">
                 (separate each course with a comma)
               </span>
@@ -171,6 +196,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="tags">
               <p className="create--high">Tags:</p>
+              {tagError.length > 0 && tagError[0].msg && (
+                <p style={{ color: 'red', marginTop: '8px' }}>
+                  {tagError[0].msg}
+                </p>
+              )}
               <span className="create--low">
                 (separate each tag with a comma)
               </span>
@@ -258,6 +288,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="ingredients">
               <p className="create--high">Ingredients:</p>
+              {ingredientsError.length > 0 && ingredientsError[0].msg && (
+                <p style={{ color: 'red', marginTop: '8px' }}>
+                  {ingredientsError[0].msg}
+                </p>
+              )}
               <span className="create--low">
                 (separate each ingredient with a comma)
               </span>
@@ -278,6 +313,11 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             />
             <label className="create__label" htmlFor="instructions">
               <p className="create--high">Instructions:</p>
+              {instructionsError.length > 0 && instructionsError[0].msg && (
+                <p style={{ color: 'red', marginTop: '8px' }}>
+                  {instructionsError[0].msg}
+                </p>
+              )}
               <span className="create--low">
                 (wrap separate instructions in brackets)
               </span>
