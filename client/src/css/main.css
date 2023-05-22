@@ -11138,7 +11138,7 @@ table {
 
 .create {
   width: 100%;
-  height: calc(100% - 60px);
+  height: calc(100vh - 60px);
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
