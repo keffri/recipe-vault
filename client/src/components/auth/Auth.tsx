@@ -34,8 +34,6 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     ValidationError[]
   >([]);
 
-  // const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
   const switchAuth = (status: boolean) => {
     setAuthError('');
     setLoggingIn(status);
@@ -55,26 +53,6 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     endpoint: string
   ) => {
     e.preventDefault();
-    // if (!authInfo.email || !authInfo.email.match(emailPattern)) {
-    //   setAuthError('Please enter a valid email address.');
-    //   return;
-    // }
-    // if (
-    //   authInfo.password === '' ||
-    //   (authInfo.confirm_password === '' && !loggingIn)
-    // ) {
-    //   setAuthError('Please fill in the password fields.');
-    //   return;
-    // } else if (
-    //   authInfo.password.length < 8 ||
-    //   (authInfo.confirm_password.length && !loggingIn)
-    // ) {
-    //   setAuthError('Passwords must be at least 8 characters.');
-    //   return;
-    // } else if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
-    //   setAuthError('Make sure passwords match.');
-    //   return;
-    // }
 
     const response = await fetch(
       `${process.env.REACT_APP_SERVERURL}/${endpoint}`,
