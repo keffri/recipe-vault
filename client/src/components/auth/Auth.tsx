@@ -12,6 +12,13 @@ interface AuthProps {
   setCookie: (name: string, value: any) => void;
 }
 
+type ValidationError = {
+  body: string;
+  msg: string;
+  param: string;
+  value: string;
+};
+
 const Auth: FC<AuthProps> = (props: AuthProps) => {
   const [loggingIn, setLoggingIn] = useState(true);
   const [authError, setAuthError] = useState('');
@@ -20,7 +27,10 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     password: '',
     confirm_password: '',
   });
-  const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+  const [emailError, setEmailError] = useState<ValidationError[]>([]);
+
+  // const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
   const switchAuth = (status: boolean) => {
     setAuthError('');
@@ -32,31 +42,35 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     });
   };
 
+  const filterErrors = (errors: ValidationError[], paramName: string) => {
+    return errors.filter((error: ValidationError) => error.param === paramName);
+  };
+
   const handleSubmit = async (
     e: React.FormEvent<HTMLInputElement>,
     endpoint: string
   ) => {
     e.preventDefault();
-    if (!authInfo.email || !authInfo.email.match(emailPattern)) {
-      setAuthError('Please enter a valid email address.');
-      return;
-    }
-    if (
-      authInfo.password === '' ||
-      (authInfo.confirm_password === '' && !loggingIn)
-    ) {
-      setAuthError('Please fill in the password fields.');
-      return;
-    } else if (
-      authInfo.password.length < 8 ||
-      (authInfo.confirm_password.length && !loggingIn)
-    ) {
-      setAuthError('Passwords must be at least 8 characters.');
-      return;
-    } else if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
-      setAuthError('Make sure passwords match.');
-      return;
-    }
+    // if (!authInfo.email || !authInfo.email.match(emailPattern)) {
+    //   setAuthError('Please enter a valid email address.');
+    //   return;
+    // }
+    // if (
+    //   authInfo.password === '' ||
+    //   (authInfo.confirm_password === '' && !loggingIn)
+    // ) {
+    //   setAuthError('Please fill in the password fields.');
+    //   return;
+    // } else if (
+    //   authInfo.password.length < 8 ||
+    //   (authInfo.confirm_password.length && !loggingIn)
+    // ) {
+    //   setAuthError('Passwords must be at least 8 characters.');
+    //   return;
+    // } else if (!loggingIn && authInfo.password !== authInfo.confirm_password) {
+    //   setAuthError('Make sure passwords match.');
+    //   return;
+    // }
 
     const response = await fetch(
       `${process.env.REACT_APP_SERVERURL}/${endpoint}`,
@@ -68,6 +82,13 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
     );
 
     const data = await response.json();
+
+    if (data.errors) {
+      setEmailError(filterErrors(data.errors, 'email'));
+      return;
+    } else {
+      console.log('success');
+    }
 
     if (data.detail) {
       setAuthError(data.detail);
@@ -96,6 +117,13 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       </button>
       <form className="auth__form">
         <label htmlFor="email">Email:</label>
+        {emailError.length > 0 && emailError[0].msg && (
+          <p style={{ color: 'red', margin: '5px 0' }}>
+            {emailError[0].msg === 'Invalid value'
+              ? 'Please enter a valid email address.'
+              : emailError[0].msg}
+          </p>
+        )}
         <input
           type="email"
           value={authInfo.email}

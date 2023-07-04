@@ -6,6 +6,12 @@ const { body, validationResult } = require('express-validator');
 import { Request, Response } from 'express';
 
 exports.signup_post = [
+  body('email')
+    .trim()
+    .matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+    .isLength({ min: 6 })
+    .escape()
+    .withMessage('Please enter a valid email address.'),
   body('password')
     .trim()
     .isLength({ min: 8 })
@@ -23,7 +29,8 @@ exports.signup_post = [
   async (req: Request, res: Response) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.json({ errors: errors.array() });
+      res.status(400).json({ errors: errors.array() });
+      console.log(errors);
       return;
     }
 
