@@ -29,6 +29,10 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
   });
 
   const [emailError, setEmailError] = useState<ValidationError[]>([]);
+  const [passwordError, setPasswordError] = useState<ValidationError[]>([]);
+  const [confirmPasswordError, setConfirmPasswordError] = useState<
+    ValidationError[]
+  >([]);
 
   // const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
@@ -85,6 +89,9 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
 
     if (data.errors) {
       setEmailError(filterErrors(data.errors, 'email'));
+      setPasswordError(filterErrors(data.errors, 'password'));
+      setConfirmPasswordError(filterErrors(data.errors, 'confirm_password'));
+
       return;
     } else {
       console.log('success');
@@ -130,6 +137,11 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           onChange={(e) => setAuthInfo({ ...authInfo, email: e.target.value })}
         />
         <label htmlFor="password">Password:</label>
+        {passwordError.length > 0 && passwordError[0].msg && (
+          <p style={{ color: 'red', margin: '5px 0' }}>
+            {passwordError[0].msg}
+          </p>
+        )}
         <input
           type="password"
           value={authInfo.password}
@@ -139,17 +151,23 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           autoComplete="off"
         />
         {!loggingIn && (
-          <label htmlFor="confirm_password">Confirm password:</label>
-        )}
-        {!loggingIn && (
-          <input
-            type="password"
-            value={authInfo.confirm_password}
-            onChange={(e) =>
-              setAuthInfo({ ...authInfo, confirm_password: e.target.value })
-            }
-            autoComplete="off"
-          />
+          <div>
+            <label htmlFor="confirm_password">Confirm password:</label>
+            {confirmPasswordError.length > 0 && confirmPasswordError[0].msg && (
+              <p style={{ color: 'red', margin: '5px 0' }}>
+                {confirmPasswordError[0].msg}
+              </p>
+            )}
+
+            <input
+              type="password"
+              value={authInfo.confirm_password}
+              onChange={(e) =>
+                setAuthInfo({ ...authInfo, confirm_password: e.target.value })
+              }
+              autoComplete="off"
+            />
+          </div>
         )}
         <input
           type="submit"
