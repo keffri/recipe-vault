@@ -48,4 +48,9 @@
     cursor: pointer;
     text-decoration: underline;
   }
+
+  &__error {
+    color: red;
+    margin: 5px 0;
+  }
 }
