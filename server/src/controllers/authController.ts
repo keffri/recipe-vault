@@ -19,7 +19,7 @@ exports.signup_post = [
   body('confirm_password')
     .trim()
     .isLength({ min: 8 })
-    .withMessage('Password must be at least 8 characters..')
+    .withMessage('Password must be at least 8 characters.')
     .custom(async (value: string, { req }: any) => {
       if (value !== req.body.password) {
         throw new Error('Passwords must match each other.');
