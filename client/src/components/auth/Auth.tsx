@@ -129,7 +129,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           autoComplete="off"
         />
         {!loggingIn && (
-          <div>
+          <div className="auth__div">
             <label htmlFor="confirm_password">Confirm password:</label>
             {confirmPasswordError.length > 0 && confirmPasswordError[0].msg && (
               <p style={{ color: 'red', margin: '5px 0' }}>
