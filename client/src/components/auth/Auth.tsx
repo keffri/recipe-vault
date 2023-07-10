@@ -103,14 +103,14 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
       <form className="auth__form">
         <label htmlFor="email">Email:</label>
         {emailError.length > 0 && emailError[0].msg && (
-          <p style={{ color: 'red', margin: '5px 0' }}>
+          <p className="auth__error">
             {emailError[0].msg === 'Invalid value'
               ? 'Please enter a valid email address.'
               : emailError[0].msg}
           </p>
         )}
         {authError === 'Email does not exist.' && (
-          <p style={{ color: 'red', margin: '5px 0' }}>{authError}</p>
+          <p className="auth__error">{authError}</p>
         )}
         <input
           type="email"
@@ -119,12 +119,10 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
         />
         <label htmlFor="password">Password:</label>
         {passwordError.length > 0 && passwordError[0].msg && (
-          <p style={{ color: 'red', margin: '5px 0' }}>
-            {passwordError[0].msg}
-          </p>
+          <p className="auth__error">{passwordError[0].msg}</p>
         )}
         {authError === 'Incorrect password.' && (
-          <p style={{ color: 'red', margin: '5px 0' }}>{authError}</p>
+          <p className="auth__error">{authError}</p>
         )}
         <input
           type="password"
@@ -138,9 +136,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           <div className="auth__div">
             <label htmlFor="confirm_password">Confirm password:</label>
             {confirmPasswordError.length > 0 && confirmPasswordError[0].msg && (
-              <p style={{ color: 'red', margin: '5px 0' }}>
-                {confirmPasswordError[0].msg}
-              </p>
+              <p className="auth__error">{confirmPasswordError[0].msg}</p>
             )}
 
             <input
