@@ -109,6 +109,9 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
               : emailError[0].msg}
           </p>
         )}
+        {authError === 'Email does not exist.' && (
+          <p style={{ color: 'red', margin: '5px 0' }}>{authError}</p>
+        )}
         <input
           type="email"
           value={authInfo.email}
@@ -119,6 +122,9 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           <p style={{ color: 'red', margin: '5px 0' }}>
             {passwordError[0].msg}
           </p>
+        )}
+        {authError === 'Incorrect password.' && (
+          <p style={{ color: 'red', margin: '5px 0' }}>{authError}</p>
         )}
         <input
           type="password"
@@ -154,7 +160,7 @@ const Auth: FC<AuthProps> = (props: AuthProps) => {
           value={loggingIn ? 'Log In' : 'Sign Up'}
         />
       </form>
-      {authError && <p className="auth__error">{authError}</p>}
+
       {loggingIn ? (
         <p className="auth_message">
           Not a member yet? Click{' '}
