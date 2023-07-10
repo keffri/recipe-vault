@@ -10976,11 +10976,12 @@ table {
   background-color: transparent;
   font-weight: bold;
 }
-.auth__form {
+.auth__form, .auth__div {
   display: flex;
   flex-direction: column;
 }
-.auth__form input {
+.auth__form input, .auth__div input {
+  width: 20rem;
   margin: 4px 0;
   padding: 4px 0;
 }
