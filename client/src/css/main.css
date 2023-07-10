@@ -10990,6 +10990,10 @@ table {
   cursor: pointer;
   text-decoration: underline;
 }
+.auth__error {
+  color: red;
+  margin: 5px 0;
+}
 
 .landing {
   width: 100%;
