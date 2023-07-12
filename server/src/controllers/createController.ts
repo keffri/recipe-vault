@@ -22,7 +22,7 @@ exports.create_post = [
     .isLength({ min: 4 })
     .escape()
     .withMessage('You must enter at least one course.'),
-  body('tag')
+  body('tags')
     .trim()
     .isLength({ min: 3 })
     .escape()
