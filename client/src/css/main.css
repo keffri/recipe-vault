@@ -11143,7 +11143,7 @@ table {
 
 .create {
   width: 100%;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   padding: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -11230,7 +11230,7 @@ html,
 body,
 #root,
 .app {
-  min-height: 100vh;
+  min-height: 100%;
   position: relative;
   font-family: Arial, Helvetica, sans-serif;
 }
