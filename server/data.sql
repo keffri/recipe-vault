@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE recipes (
     recipe_id VARCHAR(255) PRIMARY KEY,
-    user_id VARCHAR (255) FOREIGN KEY REFERENCES users(id),
+    FOREIGN KEY user_id VARCHAR (255) REFERENCES users(id),
     recipe VARCHAR (40),
     course VARCHAR(20),
     cuisine VARCHAR(20),
@@ -22,25 +22,25 @@ CREATE TABLE recipes (
 
 CREATE TABLE tags (
     tag_id VARCHAR(255) PRIMARY KEY,
-    recipe_id VARCHAR(255) FOREIGN KEY REFERENCES recipes(recipe_id),
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     tag VARCHAR(12)
 )
 
 CREATE TABLE ingredients (
     ingredient_id VARCHAR(255) PRIMARY KEY,
-    recipe_id VARCHAR(255) FOREIGN KEY REFERENCES recipes(recipe_id),
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     ingredient VARCHAR(30)
 )
 
 CREATE TABLE instructions (
     instruction_id VARCHAR(255) PRIMARY KEY,
-    recipe_id VARCHAR(255) FOREIGN KEY REFERENCES recipes(recipe_id),
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     instruction VARCHAR(255)
 ) 
 
 CREATE TABLE notes (
     note_id VARCHAR(255) PRIMARY KEY,
-    recipe_id VARCHAR(255) FOREIGN KEY REFERENCES recipes(recipe_id),
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     note VARCHAR(255)
 )
 
