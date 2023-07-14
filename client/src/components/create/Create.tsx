@@ -133,6 +133,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </p>
             )}
             <input
+              id="recipe_name"
+              autoComplete="off"
               className="create__input"
               type="text"
               name="name"
@@ -154,6 +156,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
             </label>
 
             <input
+              id="cuisine"
+              autoComplete="off"
               className="create__input"
               type="text"
               placeholder="Italian, Japanese, Indian..."
@@ -180,6 +184,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </span>
             </label>
             <input
+              id="course"
+              autoComplete="off"
               className="create__input"
               type="text"
               placeholder="Breakfast, lunch, dinner..."
@@ -206,6 +212,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </span>
             </label>
             <input
+              id="tags"
+              autoComplete="off"
               className="create__input"
               type="text"
               placeholder="Keto, dairy free, vegan..."
@@ -225,6 +233,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <span className="create--low">(mins)</span>
             </label>
             <input
+              id="prep_time"
+              autoComplete="off"
               className="create__input"
               type="number"
               name="prep_time"
@@ -244,6 +254,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <span className="create--low">(mins)</span>
             </label>
             <input
+              id="cook_time"
+              autoComplete="off"
               className="create__input"
               type="number"
               name="cook_time"
@@ -263,6 +275,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <span className="create--low">(mins)</span>
             </label>
             <input
+              id="total_time"
+              autoComplete="off"
               className="create__input"
               type="number"
               name="total_time"
@@ -274,6 +288,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <p className="create--high">Serves:</p>
             </label>
             <input
+              id="serves"
+              autoComplete="off"
               className="create__input"
               type="number"
               name="serves"
@@ -298,6 +314,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </span>
             </label>
             <textarea
+              id="ingredients"
               className="create__textarea"
               placeholder="Ingredient one, Ingredient two, Ingredient three..."
               name="ingredients"
@@ -323,6 +340,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </span>
             </label>
             <textarea
+              id="instructions"
               className="create__textarea"
               placeholder="[Instruction one][Instruction two][Instruction three]..."
               name="instructions"
@@ -343,6 +361,7 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               </span>
             </label>
             <textarea
+              id="notes"
               className="create__textarea"
               placeholder="[Note one][Note two][Note three]..."
               name="notes"
@@ -360,6 +379,8 @@ const Create: FC<CreateProps> = (props: CreateProps) => {
               <p className="create--high">Link:</p>
             </label>
             <input
+              id="link"
+              autoComplete="off"
               className="create__input"
               type="text"
               placeholder="www.recipes.com/recipe"
