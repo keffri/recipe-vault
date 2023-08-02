@@ -22,25 +22,46 @@ CREATE TABLE recipes (
 
 CREATE TABLE tags (
     tag_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     tag VARCHAR(12)
+)
+
+CREATE TABLE recipe_tags (
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
+    tag_id VARCHAR(255) REFERENCES tags(tag_id)
+    PRIMARY KEY (recipe_id, tag_id)
 )
 
 CREATE TABLE ingredients (
     ingredient_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     ingredient VARCHAR(30)
+)
+
+CREATE TABLE recipe_ingredients (
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id)
+    ingredient_id VARCHAR(255) REFERENCES ingredients(ingredient_id)
+    PRIMARY KEY (recipe_id, ingredient_id)
 )
 
 CREATE TABLE instructions (
     instruction_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     instruction VARCHAR(255)
 ) 
 
+CREATE TABLE recipe_instructions (
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
+    instruction_id VARCHAR(255) REFERENCES instructions(instruction_id)
+    PRIMARY KEY (recipe_id, instruction_id)
+)
+
 CREATE TABLE notes (
     note_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     note VARCHAR(255)
+)
+
+CREATE TABLE recipe_notes (
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
+    note_id VARCHAR(255) REFERENCES notes(note_id)
+    PRIMARY KEY (recipe_id, note_id)
+
 )
 
