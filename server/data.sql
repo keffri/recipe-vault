@@ -27,7 +27,7 @@ CREATE TABLE tags (
 
 CREATE TABLE recipe_tags (
     FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
-    tag_id VARCHAR(255) REFERENCES tags(tag_id)
+    FOREIGN KEY tag_id VARCHAR(255) REFERENCES tags(tag_id),
     PRIMARY KEY (recipe_id, tag_id)
 )
 
@@ -37,17 +37,19 @@ CREATE TABLE ingredients (
 )
 
 CREATE TABLE recipe_ingredients (
-    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id)
-    ingredient_id VARCHAR(255) REFERENCES ingredients(ingredient_id)
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
+    FOREIGN KEY ingredient_id VARCHAR(255) REFERENCES ingredients(ingredient_id),
     PRIMARY KEY (recipe_id, ingredient_id)
 )
 
 CREATE TABLE instructions (
     instruction_id VARCHAR(255) PRIMARY KEY,
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     instruction VARCHAR(255)
 ) 
 
 CREATE TABLE notes (
     note_id VARCHAR(255) PRIMARY KEY,
+    FOREIGN KEY recipe_id VARCHAR(255) REFERENCES recipes(recipe_id),
     note VARCHAR(255)
 )
